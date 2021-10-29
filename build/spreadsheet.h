@@ -1,7 +1,7 @@
 /******************************************************************************
  *  Spreadsheet Parser (spreadsheet.cpp)
  *
- *  Author: Saikishore G.
+ *  Author: Saikishore Gowrishankar
  *  Date: 05/26/2021
  *
  *  All trademarks belong to their respective owners. Lawyers love tautologies.
