@@ -1,0 +1,73 @@
+\hypertarget{classcsv}{}\doxysection{csv Class Reference}
+\label{classcsv}\index{csv@{csv}}
+
+
+{\ttfamily \#include $<$csv.\+h$>$}
+
+
+
+Inheritance diagram for csv\+:
+% FIG 0
+
+
+Collaboration diagram for csv\+:
+% FIG 1
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classcsv_aa78fcd7311297d18bf5d26173149763e}{csv}} (std\+::string\+\_\+view s)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+A class that extends std\+::fstream to preprocess CSV files as dictated by the RFC 4180 standard. This class performs preprocessing on all CSV files by removing all double-\/quotes around fields and replacing embedded comma characters with an underscore for easier processing. 
+
+Definition at line 27 of file csv.\+h.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classcsv_aa78fcd7311297d18bf5d26173149763e}\label{classcsv_aa78fcd7311297d18bf5d26173149763e}} 
+\index{csv@{csv}!csv@{csv}}
+\index{csv@{csv}!csv@{csv}}
+\doxysubsubsection{\texorpdfstring{csv()}{csv()}}
+{\footnotesize\ttfamily csv\+::csv (\begin{DoxyParamCaption}\item[{std\+::string\+\_\+view}]{s }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+\begin{DoxyParams}{Parameters}
+{\em std\+::string\+\_\+view} & Opens file s \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 33 of file csv.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{33                           : std::fstream\{s.data()\}}
+\DoxyCodeLine{34     \{}
+\DoxyCodeLine{35         \textcolor{comment}{//Regular expressions}}
+\DoxyCodeLine{36         std::regex symbol\_with\_comma\{ R\textcolor{stringliteral}{"{}\string~("{}([\string^"{}]+)(,)([\string^"{}]+)"{})\string~"{} \};}}
+\DoxyCodeLine{37 \textcolor{stringliteral}{        std::regex quotes\_symbol\{ R}\textcolor{stringliteral}{"{}\string~("{}."{})\string~"{} \};}}
+\DoxyCodeLine{38 \textcolor{stringliteral}{}}
+\DoxyCodeLine{39 \textcolor{stringliteral}{        }\textcolor{comment}{//Read line into buffer}}
+\DoxyCodeLine{40         std::getline(*\textcolor{keyword}{this}, buf\_, (\textcolor{keywordtype}{char})EOF);}
+\DoxyCodeLine{41 }
+\DoxyCodeLine{42         \textcolor{comment}{//Replace commas in symbols with underscore}}
+\DoxyCodeLine{43         buf\_ = std::regex\_replace(buf\_, symbol\_with\_comma, \textcolor{stringliteral}{"{}\$1\_\$3"{}});}
+\DoxyCodeLine{44 }
+\DoxyCodeLine{45         \textcolor{comment}{//Erase all double quote characters (remove-\/erase idiom)}}
+\DoxyCodeLine{46         buf\_.erase(std::remove(std::begin(buf\_), std::end(buf\_), \textcolor{charliteral}{'"{}'}), std::end(buf\_));}
+\DoxyCodeLine{47 }
+\DoxyCodeLine{48         \textcolor{comment}{//Write new contents.}}
+\DoxyCodeLine{49         close(); open(s.data(), std::fstream::out | std::fstream::in | std::fstream::trunc);}
+\DoxyCodeLine{50         *\textcolor{keyword}{this} << buf\_;}
+\DoxyCodeLine{51         seekp(0); seekg(0);}
+\DoxyCodeLine{52     \}}
+
+\end{DoxyCode}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+csv.\+h\end{DoxyCompactItemize}
