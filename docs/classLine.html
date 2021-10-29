@@ -115,9 +115,6 @@ cell const  &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operator
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="friends"></a>
 Friends</h2></td></tr>
-<tr class="memitem:a8c09cd55f7768a7983fa1437f28198b7"><td class="memItemLeft" align="right" valign="top"><a id="a8c09cd55f7768a7983fa1437f28198b7"></a>
-class&#160;</td><td class="memItemRight" valign="bottom"><b>Spreadsheet</b></td></tr>
-<tr class="separator:a8c09cd55f7768a7983fa1437f28198b7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac0b47984f0cdc94e2e52beaa683a46a2"><td class="memItemLeft" align="right" valign="top">std::ostream &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classLine.html#ac0b47984f0cdc94e2e52beaa683a46a2">operator&lt;&lt;</a> (std::ostream &amp;os, <a class="el" href="classLine.html">Line</a> const &amp;l)</td></tr>
 <tr class="memdesc:ac0b47984f0cdc94e2e52beaa683a46a2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Output formatted line.  <a href="classLine.html#ac0b47984f0cdc94e2e52beaa683a46a2">More...</a><br /></td></tr>
 <tr class="separator:ac0b47984f0cdc94e2e52beaa683a46a2"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -171,28 +168,28 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>Spreadsheet</b></td>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="spreadsheet_8h_source.html#l00063">63</a> of file <a class="el" href="spreadsheet_8h_source.html">spreadsheet.h</a>.</p>
-<div class="fragment"><div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    {</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;        <span class="keyword">using namespace </span>std::string_literals;</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160; </div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;        std::istringstream ss{raw};</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;        cell c;</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;        <span class="keyword">auto</span> str = ss.str();</div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;        <span class="keywordflow">if</span>(str[0] == <span class="charliteral">&#39;&quot;&#39;</span>)</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;        {</div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;            <span class="comment">// @todo Fix output of names w/ comma</span></div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;            ss.get();</div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;            std::getline(ss, c, <span class="charliteral">&#39;&quot;&#39;</span>);</div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160; </div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;            cells.push_back(<span class="stringliteral">&quot;\&quot;&quot;</span>s+c+<span class="stringliteral">&quot;\&quot;&quot;</span>s);</div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;            ss.get();</div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;        }</div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;        <span class="keywordflow">while</span>(std::getline(ss, c, <span class="charliteral">&#39;,&#39;</span>)) cells.push_back(c);</div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160; </div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;        <span class="keyword">auto</span> sz = std::size(cells);</div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;        <span class="keywordflow">if</span>(line_length &gt; 0 &amp;&amp; sz &lt; (<span class="keywordtype">unsigned</span>)line_length)</div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;            <span class="keywordflow">for</span>(<span class="keywordtype">int</span> i = sz; i &lt; line_length; ++i) cells.push_back(<span class="stringliteral">&quot;_&quot;</span>);</div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;    }</div>
+<p class="definition">Definition at line <a class="el" href="spreadsheet_8h_source.html#l00062">62</a> of file <a class="el" href="spreadsheet_8h_source.html">spreadsheet.h</a>.</p>
+<div class="fragment"><div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;    {</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;        <span class="keyword">using namespace </span>std::string_literals;</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160; </div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;        std::istringstream ss{raw};</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;        cell c;</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;        <span class="keyword">auto</span> str = ss.str();</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;        <span class="keywordflow">if</span>(str[0] == <span class="charliteral">&#39;&quot;&#39;</span>)</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;        {</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;            <span class="comment">// @todo Fix output of names w/ comma</span></div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;            ss.get();</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;            std::getline(ss, c, <span class="charliteral">&#39;&quot;&#39;</span>);</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160; </div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;            cells.push_back(<span class="stringliteral">&quot;\&quot;&quot;</span>s+c+<span class="stringliteral">&quot;\&quot;&quot;</span>s);</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;            ss.get();</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;        }</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;        <span class="keywordflow">while</span>(std::getline(ss, c, <span class="charliteral">&#39;,&#39;</span>)) cells.push_back(c);</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160; </div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;        <span class="keyword">auto</span> sz = std::size(cells);</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;        <span class="keywordflow">if</span>(line_length &gt; 0 &amp;&amp; sz &lt; (<span class="keywordtype">unsigned</span>)line_length)</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;            <span class="keywordflow">for</span>(<span class="keywordtype">int</span> i = sz; i &lt; line_length; ++i) cells.push_back(<span class="stringliteral">&quot;_&quot;</span>);</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;    }</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -224,8 +221,8 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>Spreadsheet</b></td>
 <p>Access individual cells. </p>
 <p><a class="el" href="classLine.html#aaf0dd23a340d74d24bff405a7f09a7e3" title="Access individual cells.">operator[]()</a> </p>
 
-<p class="definition">Definition at line <a class="el" href="spreadsheet_8h_source.html#l00119">119</a> of file <a class="el" href="spreadsheet_8h_source.html">spreadsheet.h</a>.</p>
-<div class="fragment"><div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;{ <span class="keywordflow">return</span> cells[off]; }</div>
+<p class="definition">Definition at line <a class="el" href="spreadsheet_8h_source.html#l00118">118</a> of file <a class="el" href="spreadsheet_8h_source.html">spreadsheet.h</a>.</p>
+<div class="fragment"><div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;{ <span class="keywordflow">return</span> cells[off]; }</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -256,14 +253,14 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>Spreadsheet</b></td>
 <p><a class="el" href="classLine.html#aa88f3f4350fbe270f83caceae07955f8" title="Extracts cells from raw line.">to_raw()</a></p>
 <dl class="section return"><dt>Returns</dt><dd>std::string holding raw data </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="spreadsheet_8h_source.html#l00092">92</a> of file <a class="el" href="spreadsheet_8h_source.html">spreadsheet.h</a>.</p>
-<div class="fragment"><div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;    {</div>
-<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;        std::ostringstream ss;</div>
-<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;        std::copy(std::begin(cells), std::end(cells), std::ostream_iterator&lt;cell&gt;(ss, <span class="stringliteral">&quot;,&quot;</span>));</div>
-<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;        <span class="keyword">auto</span> val = ss.str();</div>
-<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;        val.pop_back();</div>
-<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;        <span class="keywordflow">return</span> val;</div>
-<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;    }</div>
+<p class="definition">Definition at line <a class="el" href="spreadsheet_8h_source.html#l00091">91</a> of file <a class="el" href="spreadsheet_8h_source.html">spreadsheet.h</a>.</p>
+<div class="fragment"><div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;    {</div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;        std::ostringstream ss;</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;        std::copy(std::begin(cells), std::end(cells), std::ostream_iterator&lt;cell&gt;(ss, <span class="stringliteral">&quot;,&quot;</span>));</div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;        <span class="keyword">auto</span> val = ss.str();</div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;        val.pop_back();</div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;        <span class="keywordflow">return</span> val;</div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;    }</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -305,11 +302,11 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>Spreadsheet</b></td>
 <p>Output formatted line. </p>
 <p>::operator&lt;&lt;() </p>
 
-<p class="definition">Definition at line <a class="el" href="spreadsheet_8h_source.html#l00106">106</a> of file <a class="el" href="spreadsheet_8h_source.html">spreadsheet.h</a>.</p>
-<div class="fragment"><div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;    {</div>
-<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;        std::copy(std::begin(l.cells), std::end(l.cells), std::ostream_iterator&lt;cell&gt;(os, <span class="stringliteral">&quot; &quot;</span>));</div>
-<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;        <span class="keywordflow">return</span> os;</div>
-<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;    }</div>
+<p class="definition">Definition at line <a class="el" href="spreadsheet_8h_source.html#l00105">105</a> of file <a class="el" href="spreadsheet_8h_source.html">spreadsheet.h</a>.</p>
+<div class="fragment"><div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;    {</div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;        std::copy(std::begin(l.cells), std::end(l.cells), std::ostream_iterator&lt;cell&gt;(os, <span class="stringliteral">&quot; &quot;</span>));</div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;        <span class="keywordflow">return</span> os;</div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;    }</div>
 </div><!-- fragment -->
 </div>
 </div>

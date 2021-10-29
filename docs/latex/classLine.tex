@@ -43,9 +43,6 @@ cell const  \& {\bfseries operator\mbox{[}$\,$\mbox{]}} (std\+::ptrdiff\+\_\+t o
 \doxysubsection*{Friends}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{classLine_a8c09cd55f7768a7983fa1437f28198b7}\label{classLine_a8c09cd55f7768a7983fa1437f28198b7}} 
-class {\bfseries Spreadsheet}
-\item 
 std\+::ostream \& \mbox{\hyperlink{classLine_ac0b47984f0cdc94e2e52beaa683a46a2}{operator$<$$<$}} (std\+::ostream \&os, \mbox{\hyperlink{classLine}{Line}} const \&l)
 \begin{DoxyCompactList}\small\item\em Output formatted line. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
@@ -79,31 +76,31 @@ Extracts cells from raw line.
 \end{DoxyParams}
 
 
-Definition at line 63 of file spreadsheet.\+h.
+Definition at line 62 of file spreadsheet.\+h.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{64     \{}
-\DoxyCodeLine{65         \textcolor{keyword}{using namespace }std::string\_literals;}
-\DoxyCodeLine{66 }
-\DoxyCodeLine{67         std::istringstream ss\{raw\};}
-\DoxyCodeLine{68         cell c;}
-\DoxyCodeLine{69         \textcolor{keyword}{auto} str = ss.str();}
-\DoxyCodeLine{70         \textcolor{keywordflow}{if}(str[0] == \textcolor{charliteral}{'"{}'})}
-\DoxyCodeLine{71         \{}
-\DoxyCodeLine{72             \textcolor{comment}{// @todo Fix output of names w/ comma}}
-\DoxyCodeLine{73             ss.get();}
-\DoxyCodeLine{74             std::getline(ss, c, \textcolor{charliteral}{'"{}'});}
-\DoxyCodeLine{75 }
-\DoxyCodeLine{76             cells.push\_back(\textcolor{stringliteral}{"{}\(\backslash\)"{}"{}}s+c+\textcolor{stringliteral}{"{}\(\backslash\)"{}"{}}s);}
-\DoxyCodeLine{77             ss.get();}
-\DoxyCodeLine{78         \}}
-\DoxyCodeLine{79         \textcolor{keywordflow}{while}(std::getline(ss, c, \textcolor{charliteral}{','})) cells.push\_back(c);}
-\DoxyCodeLine{80 }
-\DoxyCodeLine{81         \textcolor{keyword}{auto} sz = std::size(cells);}
-\DoxyCodeLine{82         \textcolor{keywordflow}{if}(line\_length > 0 \&\& sz < (\textcolor{keywordtype}{unsigned})line\_length)}
-\DoxyCodeLine{83             \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int} i = sz; i < line\_length; ++i) cells.push\_back(\textcolor{stringliteral}{"{}\_"{}});}
-\DoxyCodeLine{84     \}}
+\DoxyCodeLine{63     \{}
+\DoxyCodeLine{64         \textcolor{keyword}{using namespace }std::string\_literals;}
+\DoxyCodeLine{65 }
+\DoxyCodeLine{66         std::istringstream ss\{raw\};}
+\DoxyCodeLine{67         cell c;}
+\DoxyCodeLine{68         \textcolor{keyword}{auto} str = ss.str();}
+\DoxyCodeLine{69         \textcolor{keywordflow}{if}(str[0] == \textcolor{charliteral}{'"{}'})}
+\DoxyCodeLine{70         \{}
+\DoxyCodeLine{71             \textcolor{comment}{// @todo Fix output of names w/ comma}}
+\DoxyCodeLine{72             ss.get();}
+\DoxyCodeLine{73             std::getline(ss, c, \textcolor{charliteral}{'"{}'});}
+\DoxyCodeLine{74 }
+\DoxyCodeLine{75             cells.push\_back(\textcolor{stringliteral}{"{}\(\backslash\)"{}"{}}s+c+\textcolor{stringliteral}{"{}\(\backslash\)"{}"{}}s);}
+\DoxyCodeLine{76             ss.get();}
+\DoxyCodeLine{77         \}}
+\DoxyCodeLine{78         \textcolor{keywordflow}{while}(std::getline(ss, c, \textcolor{charliteral}{','})) cells.push\_back(c);}
+\DoxyCodeLine{79 }
+\DoxyCodeLine{80         \textcolor{keyword}{auto} sz = std::size(cells);}
+\DoxyCodeLine{81         \textcolor{keywordflow}{if}(line\_length > 0 \&\& sz < (\textcolor{keywordtype}{unsigned})line\_length)}
+\DoxyCodeLine{82             \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int} i = sz; i < line\_length; ++i) cells.push\_back(\textcolor{stringliteral}{"{}\_"{}});}
+\DoxyCodeLine{83     \}}
 
 \end{DoxyCode}
 
@@ -121,11 +118,11 @@ Access individual cells.
 
 \mbox{\hyperlink{classLine_aaf0dd23a340d74d24bff405a7f09a7e3}{operator\mbox{[}$\,$\mbox{]}()}} 
 
-Definition at line 119 of file spreadsheet.\+h.
+Definition at line 118 of file spreadsheet.\+h.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{119 \{ \textcolor{keywordflow}{return} cells[off]; \}}
+\DoxyCodeLine{118 \{ \textcolor{keywordflow}{return} cells[off]; \}}
 
 \end{DoxyCode}
 \mbox{\Hypertarget{classLine_aa88f3f4350fbe270f83caceae07955f8}\label{classLine_aa88f3f4350fbe270f83caceae07955f8}} 
@@ -145,17 +142,17 @@ std\+::string holding raw data
 \end{DoxyReturn}
 
 
-Definition at line 92 of file spreadsheet.\+h.
+Definition at line 91 of file spreadsheet.\+h.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{93     \{}
-\DoxyCodeLine{94         std::ostringstream ss;}
-\DoxyCodeLine{95         std::copy(std::begin(cells), std::end(cells), std::ostream\_iterator<cell>(ss, \textcolor{stringliteral}{"{},"{}}));}
-\DoxyCodeLine{96         \textcolor{keyword}{auto} val = ss.str();}
-\DoxyCodeLine{97         val.pop\_back();}
-\DoxyCodeLine{98         \textcolor{keywordflow}{return} val;}
-\DoxyCodeLine{99     \}}
+\DoxyCodeLine{92     \{}
+\DoxyCodeLine{93         std::ostringstream ss;}
+\DoxyCodeLine{94         std::copy(std::begin(cells), std::end(cells), std::ostream\_iterator<cell>(ss, \textcolor{stringliteral}{"{},"{}}));}
+\DoxyCodeLine{95         \textcolor{keyword}{auto} val = ss.str();}
+\DoxyCodeLine{96         val.pop\_back();}
+\DoxyCodeLine{97         \textcolor{keywordflow}{return} val;}
+\DoxyCodeLine{98     \}}
 
 \end{DoxyCode}
 
@@ -173,14 +170,14 @@ Output formatted line.
 
 \+::operator$<$$<$() 
 
-Definition at line 106 of file spreadsheet.\+h.
+Definition at line 105 of file spreadsheet.\+h.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{107     \{}
-\DoxyCodeLine{108         std::copy(std::begin(l.cells), std::end(l.cells), std::ostream\_iterator<cell>(os, \textcolor{stringliteral}{"{} "{}}));}
-\DoxyCodeLine{109         \textcolor{keywordflow}{return} os;}
-\DoxyCodeLine{110     \}}
+\DoxyCodeLine{106     \{}
+\DoxyCodeLine{107         std::copy(std::begin(l.cells), std::end(l.cells), std::ostream\_iterator<cell>(os, \textcolor{stringliteral}{"{} "{}}));}
+\DoxyCodeLine{108         \textcolor{keywordflow}{return} os;}
+\DoxyCodeLine{109     \}}
 
 \end{DoxyCode}
 
