@@ -1,0 +1,241 @@
+\hypertarget{classDailyQA}{}\doxysection{Daily\+QA Class Reference}
+\label{classDailyQA}\index{DailyQA@{DailyQA}}
+
+
+\mbox{\hyperlink{classDailyQA}{Daily\+QA}}.  
+
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classDailyQA_a00726a15f1c1038250fdfe7ca7548a1a}{Daily\+QA}} (std\+::string\+\_\+view names, std\+::string\+\_\+view data, std\+::string\+\_\+view throughput, std\+::string\+\_\+view providers)
+\item 
+void \mbox{\hyperlink{classDailyQA_aced4765d09bc48d21cda6e2825fb46a1}{run}} ()
+\begin{DoxyCompactList}\small\item\em Runs the main program and outputs into the outfile. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\mbox{\hyperlink{classDailyQA}{Daily\+QA}}. 
+
+This class parses and formats the URL spinner daily report and outputs the correctly formatted data so that the click rates can easily be copy/pasted into the daily QA sheet. 
+
+Definition at line 28 of file Daily\+QA.\+cpp.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classDailyQA_a00726a15f1c1038250fdfe7ca7548a1a}\label{classDailyQA_a00726a15f1c1038250fdfe7ca7548a1a}} 
+\index{DailyQA@{DailyQA}!DailyQA@{DailyQA}}
+\index{DailyQA@{DailyQA}!DailyQA@{DailyQA}}
+\doxysubsubsection{\texorpdfstring{DailyQA()}{DailyQA()}}
+{\footnotesize\ttfamily Daily\+QA\+::\+Daily\+QA (\begin{DoxyParamCaption}\item[{std\+::string\+\_\+view}]{names,  }\item[{std\+::string\+\_\+view}]{data,  }\item[{std\+::string\+\_\+view}]{throughput,  }\item[{std\+::string\+\_\+view}]{providers }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\hyperlink{classDailyQA_a00726a15f1c1038250fdfe7ca7548a1a}{Daily\+QA()}}
+
+
+\begin{DoxyParams}{Parameters}
+{\em names} & File name of sheet with projects/companies \\
+\hline
+{\em data} & File name of URL spinner daily report \\
+\hline
+{\em throughput} & File name of sheet with throughput entries \\
+\hline
+{\em providers} & File name of sheet with provider mapping \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 39 of file Daily\+QA.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{40              : names\_sheet\{names.data()\},}
+\DoxyCodeLine{41                data\_sheet\{data.data()\},}
+\DoxyCodeLine{42                throughput\_sheet\{throughput.data(), 10\}, \textcolor{comment}{//Each line of throughput sheet has 10 cells}}
+\DoxyCodeLine{43                providers\_sheet\{providers.data()\}}
+\DoxyCodeLine{44     \{}
+\DoxyCodeLine{45         \textcolor{comment}{// Insert data into a hash map for easy lookup}}
+\DoxyCodeLine{46         \textcolor{keywordflow}{for}(\textcolor{keyword}{auto}\&\& line : data\_sheet) data\_entries.insert(\{line[0]+line[1], line\});}
+\DoxyCodeLine{47         \textcolor{keywordflow}{for}(\textcolor{keyword}{auto}\&\& line : providers\_sheet) provider\_entries.insert(\{line[0], \{line[1], 0\} \});}
+\DoxyCodeLine{48     \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classDailyQA_aced4765d09bc48d21cda6e2825fb46a1}\label{classDailyQA_aced4765d09bc48d21cda6e2825fb46a1}} 
+\index{DailyQA@{DailyQA}!run@{run}}
+\index{run@{run}!DailyQA@{DailyQA}}
+\doxysubsubsection{\texorpdfstring{run()}{run()}}
+{\footnotesize\ttfamily void Daily\+QA\+::run (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Runs the main program and outputs into the outfile. 
+
+\mbox{\hyperlink{classDailyQA_aced4765d09bc48d21cda6e2825fb46a1}{run()}} 
+
+Definition at line 55 of file Daily\+QA.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{56     \{}
+\DoxyCodeLine{57         std::string cached\_company\_name;}
+\DoxyCodeLine{58         std::cout << \textcolor{stringliteral}{"{}Formatting Morning QA sheet...\(\backslash\)n\(\backslash\)n"{}};}
+\DoxyCodeLine{59         \textcolor{keywordflow}{for}(\textcolor{keyword}{auto}\&\& line : names\_sheet)}
+\DoxyCodeLine{60         \{}
+\DoxyCodeLine{61             \textcolor{keyword}{auto} company = line[0], project = line[1];}
+\DoxyCodeLine{62 }
+\DoxyCodeLine{63             \textcolor{comment}{// The projects don't all have a company name listed next to them}}
+\DoxyCodeLine{64             \textcolor{comment}{// For example, if the company has multiple carriers it only lists the}}
+\DoxyCodeLine{65             \textcolor{comment}{// name next to the first project. This caches that name so that all}}
+\DoxyCodeLine{66             \textcolor{comment}{// projects under the same company have a company name listed when }}
+\DoxyCodeLine{67             \textcolor{comment}{// the data is entered into the output file.}}
+\DoxyCodeLine{68             \textcolor{keywordflow}{if}(company != \textcolor{stringliteral}{"{}"{}}) cached\_company\_name = company;}
+\DoxyCodeLine{69             \textcolor{keywordflow}{else} \textcolor{keywordflow}{if}(company == \textcolor{stringliteral}{"{}"{}} \&\& project != \textcolor{stringliteral}{"{}"{}}) company = line[0] = cached\_company\_name;}
+\DoxyCodeLine{70             \textcolor{keywordflow}{else} \textcolor{keywordflow}{if}(company == \textcolor{stringliteral}{"{}"{}} \&\& project == \textcolor{stringliteral}{"{}\_"{}}) \{ outfile << \textcolor{charliteral}{'\(\backslash\)n'}; \textcolor{keywordflow}{continue}; \}}
+\DoxyCodeLine{71 }
+\DoxyCodeLine{72             \textcolor{comment}{// The lookup uses the concatenation of the company and the project names}}
+\DoxyCodeLine{73             \textcolor{comment}{// Then, insert into name\_entries hash table for later usage in setting up throughput sheet.}}
+\DoxyCodeLine{74             \textcolor{keyword}{auto} str = company+project;}
+\DoxyCodeLine{75             \textcolor{keywordflow}{if}(company != \textcolor{stringliteral}{"{}\_"{}} \&\& project != \textcolor{stringliteral}{"{}\_"{}}) name\_entries.insert(\{str, line\});}
+\DoxyCodeLine{76 }
+\DoxyCodeLine{77             \textcolor{keyword}{static} \textcolor{keywordtype}{int} ws\_count = 0; \textcolor{comment}{//Whitespace count (merely for logging purposes)}}
+\DoxyCodeLine{78             \textcolor{keywordflow}{if}(\textcolor{keyword}{auto} search = data\_entries.find(str); search != std::end(data\_entries) \&\& search-\/>first != \textcolor{stringliteral}{"{}"{}})}
+\DoxyCodeLine{79             \{}
+\DoxyCodeLine{80 \textcolor{preprocessor}{                \#define out(x,y) ( (x)[y] == "{}"{}}? "{}n/a"{} : (x)[y]  )}
+\DoxyCodeLine{81                 outfile << out(search-\/>second,0) << \textcolor{charliteral}{','} << \textcolor{stringliteral}{"{}-\/>"{}} << out(search-\/>second,1) << \textcolor{charliteral}{','}}
+\DoxyCodeLine{82                         << out(search-\/>second,4) << \textcolor{charliteral}{','} << out(search-\/>second,6) << \textcolor{charliteral}{','}<< out(search-\/>second,8) << \textcolor{charliteral}{','} << out(search-\/>second,10) << \textcolor{stringliteral}{"{}\(\backslash\)n"{}};}
+\DoxyCodeLine{83 \textcolor{preprocessor}{                \#undef out}}
+\DoxyCodeLine{84             \}}
+\DoxyCodeLine{85             \textcolor{keywordflow}{else} \textcolor{keywordflow}{if}(project == \textcolor{stringliteral}{"{}\_"{}} || company == \textcolor{stringliteral}{"{}\_"{}} || project == \textcolor{stringliteral}{"{}"{}} || company == \textcolor{stringliteral}{"{}"{}})}
+\DoxyCodeLine{86             \{}
+\DoxyCodeLine{87                 std::cout << \textcolor{stringliteral}{"{}Skipping ws ("{}} << ++ws\_count << \textcolor{stringliteral}{"{})\(\backslash\)r"{}};}
+\DoxyCodeLine{88                 outfile << \textcolor{charliteral}{'\(\backslash\)n'};}
+\DoxyCodeLine{89             \}}
+\DoxyCodeLine{90             \textcolor{keywordflow}{else}}
+\DoxyCodeLine{91             \{}
+\DoxyCodeLine{92                 ws\_count = 0;}
+\DoxyCodeLine{93                 std::cout << \textcolor{stringliteral}{"{}\(\backslash\)u001b[31;1mCould not find:\(\backslash\)u001b[37;1m    "{}} << company << \textcolor{stringliteral}{"{}\(\backslash\)u001b[0m -\/ "{}} << project << \textcolor{stringliteral}{"{}    \(\backslash\)n"{}};}
+\DoxyCodeLine{94                 outfile << company << \textcolor{charliteral}{','} << project << \textcolor{charliteral}{','} << \textcolor{stringliteral}{"{}ERR,ERR,ERR,ERR\(\backslash\)n"{}};}
+\DoxyCodeLine{95             \}}
+\DoxyCodeLine{96         \}}
+\DoxyCodeLine{97 }
+\DoxyCodeLine{98         std::cout << \textcolor{stringliteral}{"{}\(\backslash\)n\(\backslash\)u001b[32;1mMorning QA Sheet successfully formatted.\(\backslash\)u001b[0m\(\backslash\)n Formatting Throughput sheet...\(\backslash\)n"{}};}
+\DoxyCodeLine{99 }
+\DoxyCodeLine{100         \textcolor{comment}{//Counters}}
+\DoxyCodeLine{101         \textcolor{keywordtype}{int} total\_ATT\{\}, total\_verizon\{\}, total\_sprint\{\}, total\_tmobile\{\}, total\_entries\{\};}
+\DoxyCodeLine{102         \textcolor{keywordtype}{int} only\_ATT\{\}, only\_verizon\{\}, only\_sprint\{\}, only\_tmobile\{\};}
+\DoxyCodeLine{103         \textcolor{keywordtype}{int} all\{\};}
+\DoxyCodeLine{104 }
+\DoxyCodeLine{105         std::vector<Line> D2S\{\};}
+\DoxyCodeLine{106 }
+\DoxyCodeLine{107         std::regex r\{R\textcolor{stringliteral}{"{}\string~(\(\backslash\)(([0-\/9]+)\(\backslash\)).+)\string~"{}\}; }\textcolor{comment}{//Regular expression to extract provider number}}
+\DoxyCodeLine{108         \textcolor{keywordtype}{int} unknown\_providers\{\};}
+\DoxyCodeLine{109 }
+\DoxyCodeLine{110         \textcolor{comment}{//Column titles}}
+\DoxyCodeLine{111         t\_outfile << \textcolor{stringliteral}{"{},Company,Project,Campaign,Drip Name,Drip ID, ATT, Sprint,T-\/Mobile,Verizon,Tested,Edited\(\backslash\)n"{}};}
+\DoxyCodeLine{112 }
+\DoxyCodeLine{113         \textcolor{comment}{//Delete unnecessary projects on throughput sheet}}
+\DoxyCodeLine{114         \textcolor{keywordflow}{for}(\textcolor{keyword}{auto}\&\& line : throughput\_sheet)}
+\DoxyCodeLine{115         \{}
+\DoxyCodeLine{116             \textcolor{keywordtype}{bool} ATT\{\}, verizon\{\}, sprint\{\}, tmobile\{\};}
+\DoxyCodeLine{117             \textcolor{keyword}{auto} str = line[1] + line[2]; \textcolor{comment}{//Lookup based on concatenation, as before}}
+\DoxyCodeLine{118             \textcolor{keywordflow}{if}(\textcolor{keyword}{auto} search = name\_entries.find(str); search != std::end(name\_entries))}
+\DoxyCodeLine{119             \{}
+\DoxyCodeLine{120                 ++total\_entries;}
+\DoxyCodeLine{121 }
+\DoxyCodeLine{122                 \textcolor{comment}{//Add to list of projects that will be in final throughput sheet}}
+\DoxyCodeLine{123                 D2S.push\_back(line);}
+\DoxyCodeLine{124 }
+\DoxyCodeLine{125 \textcolor{preprocessor}{                \#define provider\_block()\(\backslash\)}}
+\DoxyCodeLine{126 \textcolor{preprocessor}{                \{\(\backslash\)}}
+\DoxyCodeLine{127 \textcolor{preprocessor}{                    if(std::smatch m; std::regex\_match(dat, m, r))\(\backslash\)}}
+\DoxyCodeLine{128 \textcolor{preprocessor}{                    \{\(\backslash\)}}
+\DoxyCodeLine{129 \textcolor{preprocessor}{                        if(auto search = provider\_entries.find(m[1]); search != std::end(provider\_entries)) ++search-\/>second.second;\(\backslash\)}}
+\DoxyCodeLine{130 \textcolor{preprocessor}{                        else \{ ++unknown\_providers; provider\_entries.insert(\{m[1],\{"{}UNKNOWN"{}},1\}\}); \}\(\backslash\)}
+\DoxyCodeLine{131                     \}\(\backslash\)}
+\DoxyCodeLine{132                 \}}
+\DoxyCodeLine{133 }
+\DoxyCodeLine{134                 \textcolor{comment}{//Update total blocks and provider blocks}}
+\DoxyCodeLine{135                 \textcolor{keywordflow}{if}(\textcolor{keyword}{auto} dat = line[6]; dat != \textcolor{stringliteral}{"{}"{}} \&\& dat != \textcolor{stringliteral}{"{}\_"{}})\{ ATT     = ++total\_ATT;     provider\_block(); \}}
+\DoxyCodeLine{136                 \textcolor{keywordflow}{if}(\textcolor{keyword}{auto} dat = line[7]; dat != \textcolor{stringliteral}{"{}"{}} \&\& dat != \textcolor{stringliteral}{"{}\_"{}})\{ sprint  = ++total\_sprint;  provider\_block(); \}}
+\DoxyCodeLine{137                 \textcolor{keywordflow}{if}(\textcolor{keyword}{auto} dat = line[8]; dat != \textcolor{stringliteral}{"{}"{}} \&\& dat != \textcolor{stringliteral}{"{}\_"{}})\{ tmobile = ++total\_tmobile; provider\_block(); \}}
+\DoxyCodeLine{138                 \textcolor{keywordflow}{if}(\textcolor{keyword}{auto} dat = line[9]; dat != \textcolor{stringliteral}{"{}"{}} \&\& dat != \textcolor{stringliteral}{"{}\_"{}})\{ verizon = ++total\_verizon; provider\_block(); \}}
+\DoxyCodeLine{139 }
+\DoxyCodeLine{140 \textcolor{preprocessor}{                \#undef provider\_block}}
+\DoxyCodeLine{141 }
+\DoxyCodeLine{142                 \textcolor{comment}{//Update exclusive blocks}}
+\DoxyCodeLine{143                 \textcolor{keywordflow}{if}(ATT \&\& !sprint \&\& !tmobile \&\& !verizon) ++only\_ATT;}
+\DoxyCodeLine{144                 \textcolor{keywordflow}{if}(!ATT \&\& sprint \&\& !tmobile \&\& !verizon) ++only\_sprint;}
+\DoxyCodeLine{145                 \textcolor{keywordflow}{if}(!ATT \&\& !sprint \&\& tmobile \&\& !verizon) ++only\_tmobile;}
+\DoxyCodeLine{146                 \textcolor{keywordflow}{if}(!ATT \&\& !sprint \&\& !tmobile \&\& verizon) ++only\_verizon;}
+\DoxyCodeLine{147 }
+\DoxyCodeLine{148                 \textcolor{comment}{//Update blocks on all carriers}}
+\DoxyCodeLine{149                 \textcolor{keywordflow}{if}(ATT \&\& sprint \&\& tmobile \&\& verizon) ++all;}
+\DoxyCodeLine{150             \}}
+\DoxyCodeLine{151         \}}
+\DoxyCodeLine{152 }
+\DoxyCodeLine{153         \textcolor{comment}{//Lines in throughput sheet are lexicographically sorted. }}
+\DoxyCodeLine{154         \textcolor{comment}{//Stable sort is used to preserve relative order of elements, but is slightly less efficient}}
+\DoxyCodeLine{155         std::stable\_sort(std::begin(D2S), std::end(D2S), [](\textcolor{keyword}{auto}\&\& a, \textcolor{keyword}{auto}\&\& b)\{ \textcolor{keywordflow}{return} a[3] < b[3]; \}); \textcolor{comment}{//First sort by campaign name}}
+\DoxyCodeLine{156         std::stable\_sort(std::begin(D2S), std::end(D2S), [](\textcolor{keyword}{auto}\&\& a, \textcolor{keyword}{auto}\&\& b)\{ \textcolor{keywordflow}{return} a[2] < b[2]; \}); \textcolor{comment}{//Then sort by project name}}
+\DoxyCodeLine{157         std::stable\_sort(std::begin(D2S), std::end(D2S), [](\textcolor{keyword}{auto}\&\& a, \textcolor{keyword}{auto}\&\& b)\{ \textcolor{keywordflow}{return} a[1] < b[1]; \}); \textcolor{comment}{//Finally sort by company name}}
+\DoxyCodeLine{158 }
+\DoxyCodeLine{159 }
+\DoxyCodeLine{160         \textcolor{comment}{//Output only D2S projects that are on the names sheet.}}
+\DoxyCodeLine{161         \textcolor{keywordflow}{for}(\textcolor{keyword}{auto}\&\& line : D2S)}
+\DoxyCodeLine{162            \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int} i = 0; i < 10; ++i) \{ \textcolor{keyword}{auto} val = line[i]; t\_outfile << (val==\textcolor{stringliteral}{"{}\_"{}}?\textcolor{stringliteral}{"{} "{}}:val) << (i < 9?\textcolor{charliteral}{','}:\textcolor{charliteral}{'\(\backslash\)n'}); \}}
+\DoxyCodeLine{163 }
+\DoxyCodeLine{164         \textcolor{comment}{//Output stats (to file and stdout)}}
+\DoxyCodeLine{165         std::cout << \textcolor{stringliteral}{"{}\(\backslash\)u001b[32;1mThroughput sheet successfully formatted.\(\backslash\)u001b[0m\(\backslash\)n Outputting statistics to stdout...\(\backslash\)n\(\backslash\)n"{}};}
+\DoxyCodeLine{166 }
+\DoxyCodeLine{167         \textcolor{keyword}{auto} tp\_sz = throughput\_sheet.size();}
+\DoxyCodeLine{168         std::ostream* out = \&std::cout;}
+\DoxyCodeLine{169         \textcolor{keywordtype}{bool} outflag = \textcolor{keyword}{false};}
+\DoxyCodeLine{170         \textcolor{keywordflow}{if}(!log) std::cerr << \textcolor{stringliteral}{"{}\(\backslash\)u001b[31;1mError: could not open output/log.csv\(\backslash\)u001b[37;1m \(\backslash\)n"{}};}
+\DoxyCodeLine{171 DUMP:}
+\DoxyCodeLine{172         (*out) << (!outflag?\textcolor{stringliteral}{"{}\(\backslash\)u001b[37;1m"{}}:\textcolor{stringliteral}{"{}"{}}) << \textcolor{stringliteral}{"{}Number of entries before formatting: "{}} << (!outflag?\textcolor{stringliteral}{"{}\(\backslash\)u001b[0m"{}}:\textcolor{stringliteral}{"{},"{}}) << tp\_sz << \textcolor{stringliteral}{"{}\(\backslash\)n"{}};}
+\DoxyCodeLine{173         (*out) << (!outflag?\textcolor{stringliteral}{"{}\(\backslash\)u001b[37;1m"{}}:\textcolor{stringliteral}{"{}"{}}) << \textcolor{stringliteral}{"{}Total number of entries deleted: "{}} << (!outflag?\textcolor{stringliteral}{"{}\(\backslash\)u001b[0m"{}}:\textcolor{stringliteral}{"{},"{}}) << tp\_sz -\/ total\_entries << \textcolor{stringliteral}{"{}\(\backslash\)n"{}};}
+\DoxyCodeLine{174         (*out) << (!outflag?\textcolor{stringliteral}{"{}\(\backslash\)u001b[37;1m"{}}:\textcolor{stringliteral}{"{}"{}}) << \textcolor{stringliteral}{"{}Final size of throughput sheet (entries): "{}} << (!outflag?\textcolor{stringliteral}{"{}\(\backslash\)u001b[0m"{}}:\textcolor{stringliteral}{"{},"{}}) << total\_entries << \textcolor{stringliteral}{"{}\(\backslash\)n\(\backslash\)n"{}};}
+\DoxyCodeLine{175 }
+\DoxyCodeLine{176         (*out) << (!outflag?\textcolor{stringliteral}{"{}\(\backslash\)u001b[37;1m"{}}:\textcolor{stringliteral}{"{}"{}}) << \textcolor{stringliteral}{"{}Total ATT Blocks: "{}} << (!outflag?\textcolor{stringliteral}{"{}\(\backslash\)u001b[0m"{}}:\textcolor{stringliteral}{"{},"{}}) << total\_ATT << \textcolor{charliteral}{'\(\backslash\)n'};}
+\DoxyCodeLine{177         (*out) << (!outflag?\textcolor{stringliteral}{"{}\(\backslash\)u001b[37;1m"{}}:\textcolor{stringliteral}{"{}"{}}) << \textcolor{stringliteral}{"{}Total Verizon Blocks: "{}} << (!outflag?\textcolor{stringliteral}{"{}\(\backslash\)u001b[0m"{}}:\textcolor{stringliteral}{"{},"{}}) << total\_verizon << \textcolor{charliteral}{'\(\backslash\)n'};}
+\DoxyCodeLine{178         (*out) << (!outflag?\textcolor{stringliteral}{"{}\(\backslash\)u001b[37;1m"{}}:\textcolor{stringliteral}{"{}"{}}) << \textcolor{stringliteral}{"{}Total Sprint Blocks: "{}} << (!outflag?\textcolor{stringliteral}{"{}\(\backslash\)u001b[0m"{}}:\textcolor{stringliteral}{"{},"{}}) << total\_sprint << \textcolor{charliteral}{'\(\backslash\)n'};}
+\DoxyCodeLine{179         (*out) << (!outflag?\textcolor{stringliteral}{"{}\(\backslash\)u001b[37;1m"{}}:\textcolor{stringliteral}{"{}"{}}) << \textcolor{stringliteral}{"{}Total T-\/Mobile Blocks: "{}} << (!outflag?\textcolor{stringliteral}{"{}\(\backslash\)u001b[0m"{}}:\textcolor{stringliteral}{"{},"{}}) << total\_tmobile << \textcolor{stringliteral}{"{}\(\backslash\)n\(\backslash\)n"{}};}
+\DoxyCodeLine{180 }
+\DoxyCodeLine{181         (*out) << (!outflag?\textcolor{stringliteral}{"{}\(\backslash\)u001b[37;1m"{}}:\textcolor{stringliteral}{"{}"{}}) << \textcolor{stringliteral}{"{}Exclusive ATT Blocks: "{}} << (!outflag?\textcolor{stringliteral}{"{}\(\backslash\)u001b[0m"{}}:\textcolor{stringliteral}{"{},"{}}) << only\_ATT << \textcolor{charliteral}{'\(\backslash\)n'};}
+\DoxyCodeLine{182         (*out) << (!outflag?\textcolor{stringliteral}{"{}\(\backslash\)u001b[37;1m"{}}:\textcolor{stringliteral}{"{}"{}}) << \textcolor{stringliteral}{"{}Exclusive Verizon Blocks: "{}} << (!outflag?\textcolor{stringliteral}{"{}\(\backslash\)u001b[0m"{}}:\textcolor{stringliteral}{"{},"{}}) << only\_verizon << \textcolor{charliteral}{'\(\backslash\)n'};}
+\DoxyCodeLine{183         (*out) << (!outflag?\textcolor{stringliteral}{"{}\(\backslash\)u001b[37;1m"{}}:\textcolor{stringliteral}{"{}"{}}) << \textcolor{stringliteral}{"{}Exclusive Sprint Blocks: "{}} << (!outflag?\textcolor{stringliteral}{"{}\(\backslash\)u001b[0m"{}}:\textcolor{stringliteral}{"{},"{}}) << only\_sprint << \textcolor{charliteral}{'\(\backslash\)n'};}
+\DoxyCodeLine{184         (*out) << (!outflag?\textcolor{stringliteral}{"{}\(\backslash\)u001b[37;1m"{}}:\textcolor{stringliteral}{"{}"{}}) << \textcolor{stringliteral}{"{}Exclusive T-\/Mobile Blocks: "{}} << (!outflag?\textcolor{stringliteral}{"{}\(\backslash\)u001b[0m"{}}:\textcolor{stringliteral}{"{},"{}}) << only\_tmobile << \textcolor{stringliteral}{"{}\(\backslash\)n\(\backslash\)n"{}};}
+\DoxyCodeLine{185 }
+\DoxyCodeLine{186         (*out) << (!outflag?\textcolor{stringliteral}{"{}\(\backslash\)u001b[37;1m"{}}:\textcolor{stringliteral}{"{}"{}}) << \textcolor{stringliteral}{"{}All carrier Blocks: "{}} << (!outflag?\textcolor{stringliteral}{"{}\(\backslash\)u001b[0m"{}}:\textcolor{stringliteral}{"{},"{}}) << all << \textcolor{stringliteral}{"{}\(\backslash\)n\(\backslash\)n"{}};}
+\DoxyCodeLine{187 }
+\DoxyCodeLine{188         \textcolor{keywordflow}{for}(\textcolor{keyword}{auto}\&\& [code, provider] : provider\_entries)}
+\DoxyCodeLine{189             (*out) << (!outflag?\textcolor{stringliteral}{"{}\(\backslash\)u001b[37;1m"{}}:\textcolor{stringliteral}{"{}"{}}) << \textcolor{stringliteral}{"{}Total "{}} << provider.first << \textcolor{stringliteral}{"{} ("{}} << code << \textcolor{stringliteral}{"{}) blocks:"{}} << (!outflag?\textcolor{stringliteral}{"{}\(\backslash\)u001b[0m "{}}:\textcolor{stringliteral}{"{},"{}}) << provider.second << \textcolor{charliteral}{'\(\backslash\)n'};}
+\DoxyCodeLine{190         \textcolor{keywordflow}{if}(unknown\_providers > 0) (*out) << (!outflag?\textcolor{stringliteral}{"{}\(\backslash\)n\(\backslash\)u001b[37;1m"{}}:\textcolor{stringliteral}{"{}\(\backslash\)n"{}}) << \textcolor{stringliteral}{"{}Number of unknown providers:"{}} << (!outflag?\textcolor{stringliteral}{"{}\(\backslash\)u001b[0m "{}}:\textcolor{stringliteral}{"{},"{}}) << unknown\_providers << \textcolor{charliteral}{'\(\backslash\)n'};}
+\DoxyCodeLine{191         std::cout.put(\textcolor{charliteral}{'\(\backslash\)n'});}
+\DoxyCodeLine{192         \textcolor{keywordflow}{if}(!outflag \&\& log)}
+\DoxyCodeLine{193         \{}
+\DoxyCodeLine{194             outflag = \textcolor{keyword}{true};}
+\DoxyCodeLine{195             out = \&log;}
+\DoxyCodeLine{196             std::cout << \textcolor{stringliteral}{"{}\(\backslash\)u001b[32;1mDone.\(\backslash\)u001b[0m\(\backslash\)nOutputting stats to \(\backslash\)u001b[35;1moutput/log.csv\(\backslash\)u001b[0m..."{}};}
+\DoxyCodeLine{197             \textcolor{keywordflow}{goto} DUMP;}
+\DoxyCodeLine{198         \}}
+\DoxyCodeLine{199         std::cout << \textcolor{stringliteral}{"{}\(\backslash\)u001b[32;1mDone.\(\backslash\)u001b[0m\(\backslash\)n\(\backslash\)n"{}};}
+\DoxyCodeLine{200 }
+\DoxyCodeLine{201         \textcolor{comment}{//If debugging is necessary, add debug lines here, then \#define DEBUG above}}
+\DoxyCodeLine{202 \textcolor{preprocessor}{        \#ifdef DEBUG}}
+\DoxyCodeLine{203             \textcolor{keywordflow}{for}(\textcolor{keyword}{auto}\&\& [first, second] : name\_entries) std::cout << second << \textcolor{charliteral}{'\(\backslash\)n'};}
+\DoxyCodeLine{204             std::cout << throughput\_sheet << std::endl;}
+\DoxyCodeLine{205             \textcolor{keywordflow}{for}(\textcolor{keyword}{auto}\&\& line : throughput\_sheet) std::cout << line.size() << \textcolor{charliteral}{' '};}
+\DoxyCodeLine{206             std::cout.put(\textcolor{charliteral}{'\(\backslash\)n'});}
+\DoxyCodeLine{207 \textcolor{preprocessor}{        \#endif}}
+\DoxyCodeLine{208     \}}
+
+\end{DoxyCode}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Daily\+QA.\+cpp\end{DoxyCompactItemize}
