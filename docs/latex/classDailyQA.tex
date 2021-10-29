@@ -182,46 +182,46 @@ Definition at line 54 of file Daily\+QA.\+cpp.
 \DoxyCodeLine{155         std::stable\_sort(std::begin(D2S), std::end(D2S), [](\textcolor{keyword}{auto}\&\& a, \textcolor{keyword}{auto}\&\& b)\{ \textcolor{keywordflow}{return} a[2] < b[2]; \}); \textcolor{comment}{//Then sort by project name}}
 \DoxyCodeLine{156         std::stable\_sort(std::begin(D2S), std::end(D2S), [](\textcolor{keyword}{auto}\&\& a, \textcolor{keyword}{auto}\&\& b)\{ \textcolor{keywordflow}{return} a[1] < b[1]; \}); \textcolor{comment}{//Finally sort by company name}}
 \DoxyCodeLine{157 }
-\DoxyCodeLine{158 }
-\DoxyCodeLine{159         \textcolor{comment}{//Output only D2S projects that are on the names sheet.}}
-\DoxyCodeLine{160         \textcolor{keywordflow}{for}(\textcolor{keyword}{auto}\&\& line : D2S)}
-\DoxyCodeLine{161            \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int} i = 0; i < 10; ++i) \{ \textcolor{keyword}{auto} val = line[i]; t\_outfile << (val==\textcolor{stringliteral}{"{}\_"{}}?\textcolor{stringliteral}{"{} "{}}:val) << (i < 9?\textcolor{charliteral}{','}:\textcolor{charliteral}{'\(\backslash\)n'}); \}}
-\DoxyCodeLine{162 }
-\DoxyCodeLine{163         \textcolor{comment}{//Output stats (to file and stdout)}}
-\DoxyCodeLine{164         std::cout << \textcolor{stringliteral}{"{}\(\backslash\)u001b[32;1mThroughput sheet successfully formatted.\(\backslash\)u001b[0m\(\backslash\)n Outputting statistics to stdout...\(\backslash\)n\(\backslash\)n"{}};}
-\DoxyCodeLine{165 }
-\DoxyCodeLine{166         \textcolor{keyword}{auto} tp\_sz = throughput\_sheet.size();}
-\DoxyCodeLine{167         std::ostream* out = \&std::cout;}
-\DoxyCodeLine{168         \textcolor{keywordtype}{bool} outflag = \textcolor{keyword}{false};}
-\DoxyCodeLine{169         \textcolor{keywordflow}{if}(!log) std::cerr << \textcolor{stringliteral}{"{}\(\backslash\)u001b[31;1mError: could not open output/log.csv\(\backslash\)u001b[37;1m \(\backslash\)n"{}};}
-\DoxyCodeLine{170 DUMP:}
-\DoxyCodeLine{171         (*out) << (!outflag?\textcolor{stringliteral}{"{}\(\backslash\)u001b[37;1m"{}}:\textcolor{stringliteral}{"{}"{}}) << \textcolor{stringliteral}{"{}Number of entries before formatting: "{}} << (!outflag?\textcolor{stringliteral}{"{}\(\backslash\)u001b[0m"{}}:\textcolor{stringliteral}{"{},"{}}) << tp\_sz << \textcolor{stringliteral}{"{}\(\backslash\)n"{}};}
-\DoxyCodeLine{172         (*out) << (!outflag?\textcolor{stringliteral}{"{}\(\backslash\)u001b[37;1m"{}}:\textcolor{stringliteral}{"{}"{}}) << \textcolor{stringliteral}{"{}Total number of entries deleted: "{}} << (!outflag?\textcolor{stringliteral}{"{}\(\backslash\)u001b[0m"{}}:\textcolor{stringliteral}{"{},"{}}) << tp\_sz -\/ total\_entries << \textcolor{stringliteral}{"{}\(\backslash\)n"{}};}
-\DoxyCodeLine{173         (*out) << (!outflag?\textcolor{stringliteral}{"{}\(\backslash\)u001b[37;1m"{}}:\textcolor{stringliteral}{"{}"{}}) << \textcolor{stringliteral}{"{}Final size of throughput sheet (entries): "{}} << (!outflag?\textcolor{stringliteral}{"{}\(\backslash\)u001b[0m"{}}:\textcolor{stringliteral}{"{},"{}}) << total\_entries << \textcolor{stringliteral}{"{}\(\backslash\)n\(\backslash\)n"{}};}
-\DoxyCodeLine{174 }
-\DoxyCodeLine{175         (*out) << (!outflag?\textcolor{stringliteral}{"{}\(\backslash\)u001b[37;1m"{}}:\textcolor{stringliteral}{"{}"{}}) << \textcolor{stringliteral}{"{}Total ATT Blocks: "{}} << (!outflag?\textcolor{stringliteral}{"{}\(\backslash\)u001b[0m"{}}:\textcolor{stringliteral}{"{},"{}}) << total\_ATT << \textcolor{charliteral}{'\(\backslash\)n'};}
-\DoxyCodeLine{176         (*out) << (!outflag?\textcolor{stringliteral}{"{}\(\backslash\)u001b[37;1m"{}}:\textcolor{stringliteral}{"{}"{}}) << \textcolor{stringliteral}{"{}Total Verizon Blocks: "{}} << (!outflag?\textcolor{stringliteral}{"{}\(\backslash\)u001b[0m"{}}:\textcolor{stringliteral}{"{},"{}}) << total\_verizon << \textcolor{charliteral}{'\(\backslash\)n'};}
-\DoxyCodeLine{177         (*out) << (!outflag?\textcolor{stringliteral}{"{}\(\backslash\)u001b[37;1m"{}}:\textcolor{stringliteral}{"{}"{}}) << \textcolor{stringliteral}{"{}Total Sprint Blocks: "{}} << (!outflag?\textcolor{stringliteral}{"{}\(\backslash\)u001b[0m"{}}:\textcolor{stringliteral}{"{},"{}}) << total\_sprint << \textcolor{charliteral}{'\(\backslash\)n'};}
-\DoxyCodeLine{178         (*out) << (!outflag?\textcolor{stringliteral}{"{}\(\backslash\)u001b[37;1m"{}}:\textcolor{stringliteral}{"{}"{}}) << \textcolor{stringliteral}{"{}Total T-\/Mobile Blocks: "{}} << (!outflag?\textcolor{stringliteral}{"{}\(\backslash\)u001b[0m"{}}:\textcolor{stringliteral}{"{},"{}}) << total\_tmobile << \textcolor{stringliteral}{"{}\(\backslash\)n\(\backslash\)n"{}};}
-\DoxyCodeLine{179 }
-\DoxyCodeLine{180         (*out) << (!outflag?\textcolor{stringliteral}{"{}\(\backslash\)u001b[37;1m"{}}:\textcolor{stringliteral}{"{}"{}}) << \textcolor{stringliteral}{"{}Exclusive ATT Blocks: "{}} << (!outflag?\textcolor{stringliteral}{"{}\(\backslash\)u001b[0m"{}}:\textcolor{stringliteral}{"{},"{}}) << only\_ATT << \textcolor{charliteral}{'\(\backslash\)n'};}
-\DoxyCodeLine{181         (*out) << (!outflag?\textcolor{stringliteral}{"{}\(\backslash\)u001b[37;1m"{}}:\textcolor{stringliteral}{"{}"{}}) << \textcolor{stringliteral}{"{}Exclusive Verizon Blocks: "{}} << (!outflag?\textcolor{stringliteral}{"{}\(\backslash\)u001b[0m"{}}:\textcolor{stringliteral}{"{},"{}}) << only\_verizon << \textcolor{charliteral}{'\(\backslash\)n'};}
-\DoxyCodeLine{182         (*out) << (!outflag?\textcolor{stringliteral}{"{}\(\backslash\)u001b[37;1m"{}}:\textcolor{stringliteral}{"{}"{}}) << \textcolor{stringliteral}{"{}Exclusive Sprint Blocks: "{}} << (!outflag?\textcolor{stringliteral}{"{}\(\backslash\)u001b[0m"{}}:\textcolor{stringliteral}{"{},"{}}) << only\_sprint << \textcolor{charliteral}{'\(\backslash\)n'};}
-\DoxyCodeLine{183         (*out) << (!outflag?\textcolor{stringliteral}{"{}\(\backslash\)u001b[37;1m"{}}:\textcolor{stringliteral}{"{}"{}}) << \textcolor{stringliteral}{"{}Exclusive T-\/Mobile Blocks: "{}} << (!outflag?\textcolor{stringliteral}{"{}\(\backslash\)u001b[0m"{}}:\textcolor{stringliteral}{"{},"{}}) << only\_tmobile << \textcolor{stringliteral}{"{}\(\backslash\)n\(\backslash\)n"{}};}
-\DoxyCodeLine{184 }
-\DoxyCodeLine{185         (*out) << (!outflag?\textcolor{stringliteral}{"{}\(\backslash\)u001b[37;1m"{}}:\textcolor{stringliteral}{"{}"{}}) << \textcolor{stringliteral}{"{}All carrier Blocks: "{}} << (!outflag?\textcolor{stringliteral}{"{}\(\backslash\)u001b[0m"{}}:\textcolor{stringliteral}{"{},"{}}) << all << \textcolor{stringliteral}{"{}\(\backslash\)n\(\backslash\)n"{}};}
-\DoxyCodeLine{186 }
-\DoxyCodeLine{187         \textcolor{keywordflow}{for}(\textcolor{keyword}{auto}\&\& [code, provider] : provider\_entries)}
-\DoxyCodeLine{188             (*out) << (!outflag?\textcolor{stringliteral}{"{}\(\backslash\)u001b[37;1m"{}}:\textcolor{stringliteral}{"{}"{}}) << \textcolor{stringliteral}{"{}Total "{}} << provider.first << \textcolor{stringliteral}{"{} ("{}} << code << \textcolor{stringliteral}{"{}) blocks:"{}} << (!outflag?\textcolor{stringliteral}{"{}\(\backslash\)u001b[0m "{}}:\textcolor{stringliteral}{"{},"{}}) << provider.second << \textcolor{charliteral}{'\(\backslash\)n'};}
-\DoxyCodeLine{189         \textcolor{keywordflow}{if}(unknown\_providers > 0) (*out) << (!outflag?\textcolor{stringliteral}{"{}\(\backslash\)n\(\backslash\)u001b[37;1m"{}}:\textcolor{stringliteral}{"{}\(\backslash\)n"{}}) << \textcolor{stringliteral}{"{}Number of unknown providers:"{}} << (!outflag?\textcolor{stringliteral}{"{}\(\backslash\)u001b[0m "{}}:\textcolor{stringliteral}{"{},"{}}) << unknown\_providers << \textcolor{charliteral}{'\(\backslash\)n'};}
-\DoxyCodeLine{190         std::cout.put(\textcolor{charliteral}{'\(\backslash\)n'});}
-\DoxyCodeLine{191         \textcolor{keywordflow}{if}(!outflag \&\& log)}
-\DoxyCodeLine{192         \{}
-\DoxyCodeLine{193             outflag = \textcolor{keyword}{true};}
-\DoxyCodeLine{194             out = \&log;}
-\DoxyCodeLine{195             std::cout << \textcolor{stringliteral}{"{}\(\backslash\)u001b[32;1mDone.\(\backslash\)u001b[0m\(\backslash\)nOutputting stats to \(\backslash\)u001b[35;1moutput/log.csv\(\backslash\)u001b[0m..."{}};}
-\DoxyCodeLine{196             \textcolor{keywordflow}{goto} DUMP;}
-\DoxyCodeLine{197         \}}
+\DoxyCodeLine{158         \textcolor{comment}{//Output only D2S projects that are on the names sheet.}}
+\DoxyCodeLine{159         \textcolor{keywordflow}{for}(\textcolor{keyword}{auto}\&\& line : D2S)}
+\DoxyCodeLine{160            \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int} i = 0; i < 10; ++i) \{ \textcolor{keyword}{auto} val = line[i]; t\_outfile << (val==\textcolor{stringliteral}{"{}\_"{}}?\textcolor{stringliteral}{"{} "{}}:val) << (i < 9?\textcolor{charliteral}{','}:\textcolor{charliteral}{'\(\backslash\)n'}); \}}
+\DoxyCodeLine{161 }
+\DoxyCodeLine{162         \textcolor{comment}{//Output stats (to file and stdout)}}
+\DoxyCodeLine{163         std::cout << \textcolor{stringliteral}{"{}\(\backslash\)u001b[32;1mThroughput sheet successfully formatted.\(\backslash\)u001b[0m\(\backslash\)n Outputting statistics to stdout...\(\backslash\)n\(\backslash\)n"{}};}
+\DoxyCodeLine{164 }
+\DoxyCodeLine{165         \textcolor{keyword}{auto} tp\_sz = throughput\_sheet.size();}
+\DoxyCodeLine{166         std::ostream* out = \&std::cout;}
+\DoxyCodeLine{167         \textcolor{keywordtype}{bool} outflag = \textcolor{keyword}{false};}
+\DoxyCodeLine{168         \textcolor{keywordflow}{if}(!log) std::cerr << \textcolor{stringliteral}{"{}\(\backslash\)u001b[31;1mError: could not open \(\backslash\)u001b[35;1moutput/log.csv\(\backslash\)u001b[0m\(\backslash\)n"{}};}
+\DoxyCodeLine{169 DUMP:}
+\DoxyCodeLine{170         (*out) << (!outflag?\textcolor{stringliteral}{"{}\(\backslash\)u001b[37;1m"{}}:\textcolor{stringliteral}{"{}"{}}) << \textcolor{stringliteral}{"{}Number of entries before formatting: "{}} << (!outflag?\textcolor{stringliteral}{"{}\(\backslash\)u001b[0m"{}}:\textcolor{stringliteral}{"{},"{}}) << tp\_sz << \textcolor{stringliteral}{"{}\(\backslash\)n"{}};}
+\DoxyCodeLine{171         (*out) << (!outflag?\textcolor{stringliteral}{"{}\(\backslash\)u001b[37;1m"{}}:\textcolor{stringliteral}{"{}"{}}) << \textcolor{stringliteral}{"{}Total number of entries deleted: "{}} << (!outflag?\textcolor{stringliteral}{"{}\(\backslash\)u001b[0m"{}}:\textcolor{stringliteral}{"{},"{}}) << tp\_sz -\/ total\_entries << \textcolor{stringliteral}{"{}\(\backslash\)n"{}};}
+\DoxyCodeLine{172         (*out) << (!outflag?\textcolor{stringliteral}{"{}\(\backslash\)u001b[37;1m"{}}:\textcolor{stringliteral}{"{}"{}}) << \textcolor{stringliteral}{"{}Final size of throughput sheet (entries): "{}} << (!outflag?\textcolor{stringliteral}{"{}\(\backslash\)u001b[0m"{}}:\textcolor{stringliteral}{"{},"{}}) << total\_entries << \textcolor{stringliteral}{"{}\(\backslash\)n\(\backslash\)n"{}};}
+\DoxyCodeLine{173 }
+\DoxyCodeLine{174         (*out) << (!outflag?\textcolor{stringliteral}{"{}\(\backslash\)u001b[37;1m"{}}:\textcolor{stringliteral}{"{}"{}}) << \textcolor{stringliteral}{"{}Total ATT Blocks: "{}} << (!outflag?\textcolor{stringliteral}{"{}\(\backslash\)u001b[0m"{}}:\textcolor{stringliteral}{"{},"{}}) << total\_ATT << \textcolor{charliteral}{'\(\backslash\)n'};}
+\DoxyCodeLine{175         (*out) << (!outflag?\textcolor{stringliteral}{"{}\(\backslash\)u001b[37;1m"{}}:\textcolor{stringliteral}{"{}"{}}) << \textcolor{stringliteral}{"{}Total Verizon Blocks: "{}} << (!outflag?\textcolor{stringliteral}{"{}\(\backslash\)u001b[0m"{}}:\textcolor{stringliteral}{"{},"{}}) << total\_verizon << \textcolor{charliteral}{'\(\backslash\)n'};}
+\DoxyCodeLine{176         (*out) << (!outflag?\textcolor{stringliteral}{"{}\(\backslash\)u001b[37;1m"{}}:\textcolor{stringliteral}{"{}"{}}) << \textcolor{stringliteral}{"{}Total Sprint Blocks: "{}} << (!outflag?\textcolor{stringliteral}{"{}\(\backslash\)u001b[0m"{}}:\textcolor{stringliteral}{"{},"{}}) << total\_sprint << \textcolor{charliteral}{'\(\backslash\)n'};}
+\DoxyCodeLine{177         (*out) << (!outflag?\textcolor{stringliteral}{"{}\(\backslash\)u001b[37;1m"{}}:\textcolor{stringliteral}{"{}"{}}) << \textcolor{stringliteral}{"{}Total T-\/Mobile Blocks: "{}} << (!outflag?\textcolor{stringliteral}{"{}\(\backslash\)u001b[0m"{}}:\textcolor{stringliteral}{"{},"{}}) << total\_tmobile << \textcolor{stringliteral}{"{}\(\backslash\)n\(\backslash\)n"{}};}
+\DoxyCodeLine{178 }
+\DoxyCodeLine{179         (*out) << (!outflag?\textcolor{stringliteral}{"{}\(\backslash\)u001b[37;1m"{}}:\textcolor{stringliteral}{"{}"{}}) << \textcolor{stringliteral}{"{}Exclusive ATT Blocks: "{}} << (!outflag?\textcolor{stringliteral}{"{}\(\backslash\)u001b[0m"{}}:\textcolor{stringliteral}{"{},"{}}) << only\_ATT << \textcolor{charliteral}{'\(\backslash\)n'};}
+\DoxyCodeLine{180         (*out) << (!outflag?\textcolor{stringliteral}{"{}\(\backslash\)u001b[37;1m"{}}:\textcolor{stringliteral}{"{}"{}}) << \textcolor{stringliteral}{"{}Exclusive Verizon Blocks: "{}} << (!outflag?\textcolor{stringliteral}{"{}\(\backslash\)u001b[0m"{}}:\textcolor{stringliteral}{"{},"{}}) << only\_verizon << \textcolor{charliteral}{'\(\backslash\)n'};}
+\DoxyCodeLine{181         (*out) << (!outflag?\textcolor{stringliteral}{"{}\(\backslash\)u001b[37;1m"{}}:\textcolor{stringliteral}{"{}"{}}) << \textcolor{stringliteral}{"{}Exclusive Sprint Blocks: "{}} << (!outflag?\textcolor{stringliteral}{"{}\(\backslash\)u001b[0m"{}}:\textcolor{stringliteral}{"{},"{}}) << only\_sprint << \textcolor{charliteral}{'\(\backslash\)n'};}
+\DoxyCodeLine{182         (*out) << (!outflag?\textcolor{stringliteral}{"{}\(\backslash\)u001b[37;1m"{}}:\textcolor{stringliteral}{"{}"{}}) << \textcolor{stringliteral}{"{}Exclusive T-\/Mobile Blocks: "{}} << (!outflag?\textcolor{stringliteral}{"{}\(\backslash\)u001b[0m"{}}:\textcolor{stringliteral}{"{},"{}}) << only\_tmobile << \textcolor{stringliteral}{"{}\(\backslash\)n\(\backslash\)n"{}};}
+\DoxyCodeLine{183 }
+\DoxyCodeLine{184         (*out) << (!outflag?\textcolor{stringliteral}{"{}\(\backslash\)u001b[37;1m"{}}:\textcolor{stringliteral}{"{}"{}}) << \textcolor{stringliteral}{"{}All carrier Blocks: "{}} << (!outflag?\textcolor{stringliteral}{"{}\(\backslash\)u001b[0m"{}}:\textcolor{stringliteral}{"{},"{}}) << all << \textcolor{stringliteral}{"{}\(\backslash\)n\(\backslash\)n"{}};}
+\DoxyCodeLine{185 }
+\DoxyCodeLine{186         \textcolor{keywordflow}{for}(\textcolor{keyword}{auto}\&\& [code, provider] : provider\_entries)}
+\DoxyCodeLine{187             (*out) << (!outflag?\textcolor{stringliteral}{"{}\(\backslash\)u001b[37;1m"{}}:\textcolor{stringliteral}{"{}"{}}) << \textcolor{stringliteral}{"{}Total "{}} << provider.first << \textcolor{stringliteral}{"{} ("{}} << code << \textcolor{stringliteral}{"{}) blocks:"{}} << (!outflag?\textcolor{stringliteral}{"{}\(\backslash\)u001b[0m "{}}:\textcolor{stringliteral}{"{},"{}}) << provider.second << \textcolor{charliteral}{'\(\backslash\)n'};}
+\DoxyCodeLine{188         \textcolor{keywordflow}{if}(!outflag \&\& log)}
+\DoxyCodeLine{189         \{}
+\DoxyCodeLine{190             outflag = \textcolor{keyword}{true};}
+\DoxyCodeLine{191             out = \&log;}
+\DoxyCodeLine{192             std::cout << \textcolor{stringliteral}{"{}\(\backslash\)n\(\backslash\)u001b[32;1mDone.\(\backslash\)n\(\backslash\)u001b[0m\(\backslash\)nOutputting stats to \(\backslash\)u001b[35;1moutput/log.csv\(\backslash\)u001b[0m..."{}};}
+\DoxyCodeLine{193             \textcolor{keywordflow}{goto} DUMP;}
+\DoxyCodeLine{194         \}}
+\DoxyCodeLine{195 }
+\DoxyCodeLine{196         \textcolor{keywordflow}{if}(unknown\_providers > 0) std::cerr << \textcolor{stringliteral}{"{}\(\backslash\)n\(\backslash\)u001b[31;1m"{}} << \textcolor{stringliteral}{"{}There are "{}} << unknown\_providers << \textcolor{stringliteral}{"{} unknown providers. Please update \(\backslash\)u001b[35;1minput/providers.csv\(\backslash\)u001b[0m"{}} << \textcolor{charliteral}{'\(\backslash\)n'};}
+\DoxyCodeLine{197         std::cout.put(\textcolor{charliteral}{'\(\backslash\)n'});}
 \DoxyCodeLine{198         std::cout << \textcolor{stringliteral}{"{}\(\backslash\)u001b[32;1mDone.\(\backslash\)u001b[0m\(\backslash\)n\(\backslash\)n"{}};}
 \DoxyCodeLine{199 }
 \DoxyCodeLine{200         \textcolor{comment}{//If debugging is necessary, add debug lines here, then \#define DEBUG above}}

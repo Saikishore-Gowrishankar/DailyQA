@@ -155,7 +155,6 @@ public:
         std::stable_sort(std::begin(D2S), std::end(D2S), [](auto&& a, auto&& b){ return a[2] < b[2]; }); //Then sort by project name
         std::stable_sort(std::begin(D2S), std::end(D2S), [](auto&& a, auto&& b){ return a[1] < b[1]; }); //Finally sort by company name
 
-
         //Output only D2S projects that are on the names sheet.
         for(auto&& line : D2S)
            for(int i = 0; i < 10; ++i) { auto val = line[i]; t_outfile << (val=="_"?" ":val) << (i < 9?',':'\n'); }
@@ -166,7 +165,7 @@ public:
         auto tp_sz = throughput_sheet.size();
         std::ostream* out = &std::cout;
         bool outflag = false;
-        if(!log) std::cerr << "\u001b[31;1mError: could not open output/log.csv\u001b[37;1m \n";
+        if(!log) std::cerr << "\u001b[31;1mError: could not open \u001b[35;1moutput/log.csv\u001b[0m\n";
 DUMP:
         (*out) << (!outflag?"\u001b[37;1m":"") << "Number of entries before formatting: " << (!outflag?"\u001b[0m":",") << tp_sz << "\n";
         (*out) << (!outflag?"\u001b[37;1m":"") << "Total number of entries deleted: " << (!outflag?"\u001b[0m":",") << tp_sz - total_entries << "\n";
@@ -186,15 +185,16 @@ DUMP:
 
         for(auto&& [code, provider] : provider_entries)
             (*out) << (!outflag?"\u001b[37;1m":"") << "Total " << provider.first << " (" << code << ") blocks:" << (!outflag?"\u001b[0m ":",") << provider.second << '\n';
-        if(unknown_providers > 0) (*out) << (!outflag?"\n\u001b[37;1m":"\n") << "Number of unknown providers:" << (!outflag?"\u001b[0m ":",") << unknown_providers << '\n';
-        std::cout.put('\n');
         if(!outflag && log)
         {
             outflag = true;
             out = &log;
-            std::cout << "\u001b[32;1mDone.\u001b[0m\nOutputting stats to \u001b[35;1moutput/log.csv\u001b[0m...";
+            std::cout << "\n\u001b[32;1mDone.\n\u001b[0m\nOutputting stats to \u001b[35;1moutput/log.csv\u001b[0m...";
             goto DUMP;
         }
+
+        if(unknown_providers > 0) std::cerr << "\n\u001b[31;1m" << "There are " << unknown_providers << " unknown providers. Please update \u001b[35;1minput/providers.csv\u001b[0m" << '\n';
+        std::cout.put('\n');
         std::cout << "\u001b[32;1mDone.\u001b[0m\n\n";
 
         //If debugging is necessary, add debug lines here, then #define DEBUG above
