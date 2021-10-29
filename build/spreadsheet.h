@@ -40,7 +40,6 @@ class Line
 public:
 
     /* Implementation details*/
-    friend class Spreadsheet;
     using       iterator = std::vector<cell>::      iterator;
     using const_iterator = std::vector<cell>::const_iterator;
 
@@ -134,6 +133,7 @@ class Spreadsheet
 public:
 
     /* Implementation details*/
+    friend class Line;
     using iterator       = std::vector<Line>::      iterator;
     using const_iterator = std::vector<Line>::const_iterator;
 
