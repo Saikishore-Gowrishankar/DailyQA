@@ -5,7 +5,7 @@ American Home Shield Corp,After Hours,0
 American Home Shield Corp,AHS - Live,0
 _, 
 American Home Shield Corp,AHS - Re-engaged,0
-_, 
+,_
 American Home Shield Corp,Follow Up,0
 _, 
 Centene Corporation,WellCare - D2C/D2S Hybrid,0
@@ -53,8 +53,8 @@ Fluent,D2S - Policy Savings - Medicare - SMS,0
 Fluent,D2S - Stash - Invest - App,0
 ,_
 Fluent,D2S - SurveyJunkie - Lock Screen Ads - SMS,0
-_, 
-Fluent - Website Reengagement,Vertical - Policy Savings,0
+,_
+Fluent,Vertical - Policy Savings,0
 _, 
 Fluent - Website Reengagement,Claimed Users - Flash App,0
 ,_
@@ -112,9 +112,9 @@ _,
 Gainsco Insurance,Welcome Campaign,1
 ,_
 InfoCision Management Corporation,Cox - Drive to App,2
-_, 
-Inside Response,Medicare Vintage 2021 - D2S Hybrid,2
 ,_
+Inside Response,Medicare Vintage 2021 - D2S Hybrid,2
+_, 
 Liberty Mutual,(AP) Compare.com Auto Dual CTA,0
 ,_
 Liberty Mutual,Drive 2 Site - Vehicle Error Leads,0
