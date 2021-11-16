@@ -5,10 +5,10 @@ American Home Shield Corp,After Hours,0
 American Home Shield Corp,AHS - Live,0
 _, 
 American Home Shield Corp,AHS - Re-engaged,0
-,_
-American Home Shield Corp,Follow Up,0
 _, 
 Centene Corporation,WellCare - D2C/D2S Hybrid,0
+,_
+Centene Corporation,WellCare - D2C/D2S Hybrid - ATT Only,0
 _, 
 Core Digital Media,Remonetize - ATT,1
 _, 
@@ -16,17 +16,23 @@ Core Digital Media,Remonetize Lead,1
 _, 
 EverQuote,Auto - Drive to Site,0
 ,_
+EverQuote,Auto - Drive to Site - ATT Only,0
+,_
 EverQuote,Health Insurance,0
+,_
+EverQuote,Health Insurance - ATT Only,0
 _, 
 EverQuote,Home - Drive to Site,0
 ,_
+EverQuote,Home - Drive to Site - ATT Only,0
+,_
 EverQuote,Life Insurance,0
+,_
+EverQuote,Life Insurance - ATT Only,0
 _, 
 Fluent,D2S - AARP - Membership Driver - SMS,0
 ,_
 Fluent,D2S - Adduco - SSDI - D2S - SMS - Drips,0
-,_
-Fluent,D2S - Airfind - Smore App - SMS,0
 ,_
 Fluent,D2S - Auto Insurance - D2S - SMS - Drips,0
 ,_
@@ -56,56 +62,46 @@ Fluent,D2S - SurveyJunkie - Lock Screen Ads - SMS,0
 ,_
 Fluent,Vertical - Policy Savings,0
 _, 
-Fluent - Website Reengagement,Claimed Users - Flash App,0
-,_
-Fluent - Website Reengagement,Clickers RT - ATT - Longcode,0
-,Clickers RT - Other Carriers,
-,Clickers RT - Verizon,
-_, 
-Fluent - Website Reengagement,Converters Day 1 - ATT - Longcode,0
-,Converters Day 1 - Other Carriers,
-,Converters Day 1 - Verizon,
-_, 
-Fluent - Website Reengagement,Flow Converters RT - Primer -On Hours - Real Time Leads - ATT,0
-,Flow Converters RT - Primer -On Hours - Real Time Leads - Other Carriers,
-,Flow Converters RT - Primer -On Hours - Real Time Leads - Verizon,
-_, 
 Fluent - Website Reengagement,Jobs - Resubscribes,0
 ,_
 Fluent - Website Reengagement,Jobs - Resubscribes - Link First,0
 _, 
-Fluent - Website Reengagement,Jobs SMS - OUTSIDE,0
+Fluent - Website Reengagement,Jobs SMS,0
 ,_
-Fluent - Website Reengagement,Jobs SMS - OUTSIDE - Link First,0
+Fluent - Website Reengagement,Jobs SMS - Link First,0
 _, 
-Fluent - Website Reengagement,Join - SV,0
+Fluent - Website Reengagement,Rewards US - Claimed Users - Flash App,0
+,_
+Fluent - Website Reengagement,Rewards US - Clickers - ATT,0
+,Rewards US - Clickers - Other Carriers,
+,Rewards US - Clickers - Verizon,
 _, 
-Fluent - Website Reengagement,Join - Sweeps,0
+Fluent - Website Reengagement,Rewards US - Converters - ATT,0
+,Rewards US - Converters - Other Carriers,
+,Rewards US - Converters - Verizon,
 _, 
-Fluent - Website Reengagement,Reengagement Aged - Other Carriers,0
+Fluent - Website Reengagement,Rewards US - Flow Converters - ATT,0
+,Rewards US - Flow Converters - Other Carriers,
+,Rewards US - Flow Converters - Verizon,
 _, 
-Fluent - Website Reengagement,Re-subscribes,0
+Fluent - Website Reengagement,Rewards US - Reengagement Aged - Other Carriers,0
 _, 
-Fluent - Website Reengagement,Reward Reg Day 1 - On Hours - ATT,0
-,Reward Reg Day 1 - On Hours - Other Carriers,
-,Reward Reg Day 1 - On Hours - Verizon,
+Fluent - Website Reengagement,Rewards US - Resubscribes,0
 _, 
-Fluent - Website Reengagement,Samples SMS,0
+Fluent - Website Reengagement,Rewards US - Reward Reg - ATT,0
+,Rewards US - Reward Reg - Other Carriers,
+,Rewards US - Reward Reg - Verizon,
 _, 
-Fluent - Website Reengagement,Survey Voices On Hours,0
-,Survey Voices On Hours - Verizon,
+Fluent - Website Reengagement,Rewards US - Viewers - ATT,0
+,Rewards US - Viewers - Other Carriers,
+,Rewards US - Viewers - Verizon,
 _, 
-Fluent - Website Reengagement,SV - Resubscribes,0
+Fluent - Website Reengagement,Survey Voices - Join,0
 _, 
-Fluent - Website Reengagement,Sweeps - Resubscribes,0
+Fluent - Website Reengagement,Survey Voices - Resubscribes,0
 _, 
-Fluent - Website Reengagement,Sweeps Confirmation,0
-_, 
-Fluent - Website Reengagement,Sweeps SMS,0
-_, 
-Fluent - Website Reengagement,Viewers Day 1 - On Hours - ATT,0
-,Viewers Day 1 - On Hours - Other Carriers,
-,Viewers Day 1 - On Hours - Verizon,
+Fluent - Website Reengagement,Survey Voices - Welcome,0
+,Survey Voices - Welcome - Verizon,
 _, 
 Gainsco Insurance,Bill Reminder,1
 _, 
@@ -114,6 +110,8 @@ Gainsco Insurance,Welcome Campaign,1
 InfoCision Management Corporation,Cox - Drive to App,2
 ,_
 Inside Response,Medicare Vintage 2021 - D2S Hybrid,2
+,_
+Inside Response,Medicare Vintage 2021 - D2S Hybrid AT&T,2
 _, 
 Liberty Mutual,(AP) Compare.com Auto Dual CTA,0
 ,_
@@ -123,7 +121,7 @@ Liberty Mutual,Drive 2 Site - Vehicle Error Leads - ATT ONLY,0
 _, 
 Liberty Mutual,Quote Wizard Auto On Hours - Dual CTA,0
 _, 
-Midnight Oil Marketing,D2S - Auto Insurance,1
+Midnight Oil Marketing,D2S Auto Insurance,1
 ,_
 Mortgage Research Center,Veterans United Home Loans - Aged (7 Day) New Purchase Mortgage Loan (D2C),1
 ,_
@@ -138,20 +136,18 @@ _,
 Permanent General Companies_ Inc.,Rated SMS - Drive to Site,0
 _, 
 Permanent General Companies_ Inc.,ROUTER - Rated SMS - Drive to Site - ATT,0
+,_
+Permanent General Companies_ Inc.,Winbacks Internet (D2S),0
 _, 
 Progrexion,D2S: MK-OP: Verizon Save - Lex Law,0
 _, 
 Progrexion,MK:OP - Credit Tips - D2S,0
-,_
-Progrexion,MK:OP - Credit Tips - D2S - TMOBILE,0
 ,_
 Progrexion,MK:OP - D2S - Housing E-Book,0
 ,_
 Progrexion,MK:OP - D2S - RTO E-Book,0
 _, 
 Progrexion,MK-OP: Drive2Site - Phone to Web,0
-,_
-Progrexion,MK-OP: Drive2Site - Phone to Web - TMOBILE,0
 _, 
 What If Media,D2S Auto ATT,1
 _, 

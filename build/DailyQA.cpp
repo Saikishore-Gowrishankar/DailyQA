@@ -35,11 +35,12 @@ public:
      * @param throughput File name of sheet with throughput entries
      * @param providers File name of sheet with provider mapping
      */
-    DailyQA(std::string_view names, std::string_view data, std::string_view throughput, std::string_view providers)
+    DailyQA(std::string_view names, std::string_view data, std::string_view throughput, std::string_view providers, std::string_view thresholds)
              : names_sheet{names.data()},
                data_sheet{data.data()},
                throughput_sheet{throughput.data(), 10}, //Each line of throughput sheet has 10 cells
-               providers_sheet{providers.data()}
+               providers_sheet{providers.data()},
+               threshold_sheet{thresholds.data()}
     {
         // Insert data into a hash map for easy lookup
         for(auto&& line : data_sheet) data_entries.insert({line[0]+line[1], line});
@@ -78,7 +79,8 @@ public:
             {
                 #define out(x,y) ( (x)[y] == ""? "n/a" : (x)[y]  )
                 outfile << out(search->second,0) << ',' << "->" << out(search->second,1) << ','
-                        << out(search->second,4) << ',' << out(search->second,6) << ','<< out(search->second,8) << ',' << out(search->second,10) << "\n";
+                        << out(search->second,4) << ',' << out(search->second,6) << ','<< out(search->second,8) << ',' << out(search->second,10)
+                        << ",,no,n/a,no,n/a\n";
                 #undef out
             }
             else if(project == "_" || company == "_" || project == "" || company == "")
@@ -209,6 +211,7 @@ DUMP:
 private:
     Spreadsheet names_sheet, data_sheet, throughput_sheet;    // For the names and data and throughput
     Spreadsheet providers_sheet;			      // Stores the mapping between provider name and number
+    Spreadsheet threshold_sheet;			      // Stores the threshholds for DailyQA setup
     std::unordered_map<std::string, Line> data_entries{};     // Stores data entries
     std::unordered_map<std::string, Line> name_entries{};     // Stores name entries (for throughput sheet)
     std::unordered_map<std::string, std::pair<std::string, int>> provider_entries{}; // Stores provider mappings
@@ -225,7 +228,7 @@ int main()
 
     std::cout << "opening \u001b[35;1minput/names.csv\u001b[0m, \u001b[35;1minput/data.csv\u001b[0m, and \u001b[35;1minput/throughput.csv\u001b[0m\n";
 
-    DailyQA doc{"input/names.csv", "input/data.csv","input/throughput.csv", "input/providers.csv"};
+    DailyQA doc{"input/names.csv", "input/data.csv","input/throughput.csv", "input/providers.csv", "input/thresholds.csv"};
 
     std::cout << "\u001b[32;1mSuccessfully opened aforementioned files.\u001b[0m\n\nRunning main program.\n";
 
