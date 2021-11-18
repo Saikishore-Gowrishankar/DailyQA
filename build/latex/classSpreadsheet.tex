@@ -1,0 +1,97 @@
+\hypertarget{classSpreadsheet}{}\doxysection{Spreadsheet Class Reference}
+\label{classSpreadsheet}\index{Spreadsheet@{Spreadsheet}}
+
+
+{\ttfamily \#include $<$spreadsheet.\+h$>$}
+
+\doxysubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classSpreadsheet_a3a04fa056af3bf401c5f94735fd2914a}\label{classSpreadsheet_a3a04fa056af3bf401c5f94735fd2914a}} 
+using {\bfseries iterator} = std\+::vector$<$ \mbox{\hyperlink{classLine}{Line}} $>$\+::iterator
+\item 
+\mbox{\Hypertarget{classSpreadsheet_a8aee9a9c7a8efab3455bceef79ce106e}\label{classSpreadsheet_a8aee9a9c7a8efab3455bceef79ce106e}} 
+using {\bfseries const\+\_\+iterator} = std\+::vector$<$ \mbox{\hyperlink{classLine}{Line}} $>$\+::const\+\_\+iterator
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classSpreadsheet_aaa024826f30d974f7ae6f358dda01738}\label{classSpreadsheet_aaa024826f30d974f7ae6f358dda01738}} 
+iterator {\bfseries begin} ()
+\item 
+\mbox{\Hypertarget{classSpreadsheet_acd2418401bb24a32c7c3371785139c62}\label{classSpreadsheet_acd2418401bb24a32c7c3371785139c62}} 
+iterator {\bfseries end} ()
+\item 
+\mbox{\Hypertarget{classSpreadsheet_afb339fb1ce66ad715d6bc6195ceff678}\label{classSpreadsheet_afb339fb1ce66ad715d6bc6195ceff678}} 
+const\+\_\+iterator {\bfseries cbegin} ()
+\item 
+\mbox{\Hypertarget{classSpreadsheet_ab03e94196bb025413caac7a7223aeb90}\label{classSpreadsheet_ab03e94196bb025413caac7a7223aeb90}} 
+const\+\_\+iterator {\bfseries cend} ()
+\item 
+\mbox{\hyperlink{classSpreadsheet_a6faf4f089877ba2add1b89240cedffe6}{Spreadsheet}} (std\+::string\+\_\+view in, int line\+\_\+length=-\/1)
+\item 
+\mbox{\Hypertarget{classSpreadsheet_afb19051cc8bd19b087e45fa1903e7a4e}\label{classSpreadsheet_afb19051cc8bd19b087e45fa1903e7a4e}} 
+auto {\bfseries erase} (iterator pos)
+\item 
+\mbox{\Hypertarget{classSpreadsheet_a661ea032b4259135a87f5c98109228ed}\label{classSpreadsheet_a661ea032b4259135a87f5c98109228ed}} 
+auto {\bfseries erase} (const\+\_\+iterator pos)
+\item 
+\mbox{\Hypertarget{classSpreadsheet_a23dff27236a1674e270b3b37d84bb1e9}\label{classSpreadsheet_a23dff27236a1674e270b3b37d84bb1e9}} 
+auto {\bfseries erase} (iterator first, iterator last)
+\item 
+\mbox{\Hypertarget{classSpreadsheet_acc14fd58525a1fb426beccc41984d6b7}\label{classSpreadsheet_acc14fd58525a1fb426beccc41984d6b7}} 
+auto {\bfseries erase} (const\+\_\+iterator first, const\+\_\+iterator last)
+\item 
+\mbox{\Hypertarget{classSpreadsheet_a7cf93fc05c8d305ab080defcddb5893f}\label{classSpreadsheet_a7cf93fc05c8d305ab080defcddb5893f}} 
+{\footnotesize template$<$typename Unary\+Predicate $>$ }\\void {\bfseries remove\+\_\+erase\+\_\+if} (Unary\+Predicate p)
+\item 
+\mbox{\Hypertarget{classSpreadsheet_aaf5a2352f65c488c93ef017369d2cde8}\label{classSpreadsheet_aaf5a2352f65c488c93ef017369d2cde8}} 
+std\+::size\+\_\+t {\bfseries size} () const
+\end{DoxyCompactItemize}
+\doxysubsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classSpreadsheet_a864cca3466d5710a4742ec5caf34b497}\label{classSpreadsheet_a864cca3466d5710a4742ec5caf34b497}} 
+class {\bfseries Line}
+\item 
+std\+::ostream \& \mbox{\hyperlink{classSpreadsheet_a1878b32435417d899e1d18e9713e78df}{operator$<$$<$}} (std\+::ostream \&os, \mbox{\hyperlink{classSpreadsheet}{Spreadsheet}} const \&s)
+\begin{DoxyCompactList}\small\item\em Outputs formatted spreadsheet. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Defines the interface for a spreadsheet parser 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classSpreadsheet_a6faf4f089877ba2add1b89240cedffe6}\label{classSpreadsheet_a6faf4f089877ba2add1b89240cedffe6}} 
+\index{Spreadsheet@{Spreadsheet}!Spreadsheet@{Spreadsheet}}
+\index{Spreadsheet@{Spreadsheet}!Spreadsheet@{Spreadsheet}}
+\doxysubsubsection{\texorpdfstring{Spreadsheet()}{Spreadsheet()}}
+{\footnotesize\ttfamily Spreadsheet\+::\+Spreadsheet (\begin{DoxyParamCaption}\item[{std\+::string\+\_\+view}]{in,  }\item[{int}]{line\+\_\+length = {\ttfamily -\/1} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\hyperlink{classSpreadsheet_a6faf4f089877ba2add1b89240cedffe6}{Spreadsheet()}}
+
+
+\begin{DoxyParams}{Parameters}
+{\em in} & The input file name \\
+\hline
+{\em line\+\_\+length} & The length of each line in cells \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Friends And Related Function Documentation}
+\mbox{\Hypertarget{classSpreadsheet_a1878b32435417d899e1d18e9713e78df}\label{classSpreadsheet_a1878b32435417d899e1d18e9713e78df}} 
+\index{Spreadsheet@{Spreadsheet}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!Spreadsheet@{Spreadsheet}}
+\doxysubsubsection{\texorpdfstring{operator$<$$<$}{operator<<}}
+{\footnotesize\ttfamily std\+::ostream\& operator$<$$<$ (\begin{DoxyParamCaption}\item[{std\+::ostream \&}]{os,  }\item[{\mbox{\hyperlink{classSpreadsheet}{Spreadsheet}} const \&}]{s }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [friend]}}
+
+
+
+Outputs formatted spreadsheet. 
+
+\+::operator$<$$<$ () 
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+spreadsheet.\+h\end{DoxyCompactItemize}

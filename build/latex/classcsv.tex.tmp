@@ -1,0 +1,41 @@
+\hypertarget{classcsv}{}\doxysection{csv Class Reference}
+\label{classcsv}\index{csv@{csv}}
+
+
+{\ttfamily \#include $<$csv.\+h$>$}
+
+
+
+Inheritance diagram for csv\+:
+% FIG 0
+
+
+Collaboration diagram for csv\+:
+% FIG 1
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classcsv_aa78fcd7311297d18bf5d26173149763e}{csv}} (std\+::string\+\_\+view s)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+A class that extends std\+::fstream to preprocess CSV files as dictated by the RFC 4180 standard. This class performs preprocessing on all CSV files by removing all double-\/quotes around fields and replacing embedded comma characters with an underscore for easier processing. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classcsv_aa78fcd7311297d18bf5d26173149763e}\label{classcsv_aa78fcd7311297d18bf5d26173149763e}} 
+\index{csv@{csv}!csv@{csv}}
+\index{csv@{csv}!csv@{csv}}
+\doxysubsubsection{\texorpdfstring{csv()}{csv()}}
+{\footnotesize\ttfamily csv\+::csv (\begin{DoxyParamCaption}\item[{std\+::string\+\_\+view}]{s }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+\begin{DoxyParams}{Parameters}
+{\em std\+::string\+\_\+view} & Opens file s \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+csv.\+h\end{DoxyCompactItemize}
