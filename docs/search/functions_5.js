@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['run_18',['run',['../classDailyQA.html#aced4765d09bc48d21cda6e2825fb46a1',1,'DailyQA']]]
+  ['spreadsheet_18',['Spreadsheet',['../classSpreadsheet.html#a6faf4f089877ba2add1b89240cedffe6',1,'Spreadsheet']]]
 ];

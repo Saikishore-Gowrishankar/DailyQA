@@ -63,6 +63,7 @@ $(function() {
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pub-static-methods">Static Public Member Functions</a> &#124;
 <a href="classDailyQA-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">DailyQA Class Reference</div>  </div>
@@ -71,106 +72,32 @@ $(function() {
 
 <p><a class="el" href="classDailyQA.html" title="DailyQA.">DailyQA</a>.  
  <a href="classDailyQA.html#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="DailyQA_8h_source.html">DailyQA.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a93d20ffe2062880c94173f68d1410260"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDailyQA.html#a93d20ffe2062880c94173f68d1410260">DailyQA</a> (std::string_view names, std::string_view data, std::string_view throughput, std::string_view providers, std::string_view thresholds)</td></tr>
-<tr class="separator:a93d20ffe2062880c94173f68d1410260"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aced4765d09bc48d21cda6e2825fb46a1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDailyQA.html#aced4765d09bc48d21cda6e2825fb46a1">run</a> ()</td></tr>
-<tr class="memdesc:aced4765d09bc48d21cda6e2825fb46a1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Runs the main program and outputs into the outfile.  <a href="classDailyQA.html#aced4765d09bc48d21cda6e2825fb46a1">More...</a><br /></td></tr>
+<tr class="memdesc:aced4765d09bc48d21cda6e2825fb46a1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Runs the main program and outputs into respective files.  <a href="classDailyQA.html#aced4765d09bc48d21cda6e2825fb46a1">More...</a><br /></td></tr>
 <tr class="separator:aced4765d09bc48d21cda6e2825fb46a1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
+Static Public Member Functions</h2></td></tr>
+<tr class="memitem:a73395b13eccc33e2738f6a9b1043d1a9"><td class="memItemLeft" align="right" valign="top"><a id="a73395b13eccc33e2738f6a9b1043d1a9"></a>
+static <a class="el" href="classDailyQA.html">DailyQA</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>get_singleton</b> (std::string_view names, std::string_view data, std::string_view throughput, std::string_view providers, std::string_view thresholds)</td></tr>
+<tr class="separator:a73395b13eccc33e2738f6a9b1043d1a9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p><a class="el" href="classDailyQA.html" title="DailyQA.">DailyQA</a>. </p>
 <p>This class parses and formats the URL spinner daily report and outputs the correctly formatted data so that the click rates can easily be copy/pasted into the daily QA sheet. </p>
 
-<p class="definition">Definition at line <a class="el" href="DailyQA_8cpp_source.html#l00027">27</a> of file <a class="el" href="DailyQA_8cpp_source.html">DailyQA.cpp</a>.</p>
-</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="a93d20ffe2062880c94173f68d1410260"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a93d20ffe2062880c94173f68d1410260">&#9670;&nbsp;</a></span>DailyQA()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">DailyQA::DailyQA </td>
-          <td>(</td>
-          <td class="paramtype">std::string_view&#160;</td>
-          <td class="paramname"><em>names</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">std::string_view&#160;</td>
-          <td class="paramname"><em>data</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">std::string_view&#160;</td>
-          <td class="paramname"><em>throughput</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">std::string_view&#160;</td>
-          <td class="paramname"><em>providers</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">std::string_view&#160;</td>
-          <td class="paramname"><em>thresholds</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<p><a class="el" href="classDailyQA.html#a93d20ffe2062880c94173f68d1410260">DailyQA()</a></p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">names</td><td>File name of sheet with projects/companies </td></tr>
-    <tr><td class="paramname">data</td><td>File name of URL spinner daily report </td></tr>
-    <tr><td class="paramname">throughput</td><td>File name of sheet with throughput entries </td></tr>
-    <tr><td class="paramname">providers</td><td>File name of sheet with provider mapping </td></tr>
-  </table>
-  </dd>
-</dl>
-
-<p class="definition">Definition at line <a class="el" href="DailyQA_8cpp_source.html#l00038">38</a> of file <a class="el" href="DailyQA_8cpp_source.html">DailyQA.cpp</a>.</p>
-<div class="fragment"><div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;             : names_sheet{names.data()},</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;               data_sheet{data.data()},</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;               throughput_sheet{throughput.data(), 10}, <span class="comment">//Each line of throughput sheet has 10 cells</span></div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;               providers_sheet{providers.data()},</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;               threshold_sheet{thresholds.data()}</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    {</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;        <span class="comment">// Insert data into a hash map for easy lookup</span></div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;        <span class="keywordflow">for</span>(<span class="keyword">auto</span>&amp;&amp; line : data_sheet) data_entries.insert({line[0]+line[1], line});</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;        <span class="keywordflow">for</span>(<span class="keyword">auto</span>&amp;&amp; line : providers_sheet) provider_entries.insert({line[0], {line[1], 0} });</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    }</div>
-</div><!-- fragment -->
-</div>
-</div>
-<h2 class="groupheader">Member Function Documentation</h2>
+<p class="definition">Definition at line <a class="el" href="DailyQA_8h_source.html#l00016">16</a> of file <a class="el" href="DailyQA_8h_source.html">DailyQA.h</a>.</p>
+</div><h2 class="groupheader">Member Function Documentation</h2>
 <a id="aced4765d09bc48d21cda6e2825fb46a1"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aced4765d09bc48d21cda6e2825fb46a1">&#9670;&nbsp;</a></span>run()</h2>
 
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">void DailyQA::run </td>
@@ -179,175 +106,34 @@ Public Member Functions</h2></td></tr>
           <td></td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 
-<p>Runs the main program and outputs into the outfile. </p>
-<p><a class="el" href="classDailyQA.html#aced4765d09bc48d21cda6e2825fb46a1" title="Runs the main program and outputs into the outfile.">run()</a> </p>
+<p>Runs the main program and outputs into respective files. </p>
+<p><a class="el" href="classDailyQA.html#aced4765d09bc48d21cda6e2825fb46a1" title="Runs the main program and outputs into respective files.">run()</a> </p>
 
-<p class="definition">Definition at line <a class="el" href="DailyQA_8cpp_source.html#l00055">55</a> of file <a class="el" href="DailyQA_8cpp_source.html">DailyQA.cpp</a>.</p>
-<div class="fragment"><div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    {</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;        std::string cached_company_name;</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;        std::cout &lt;&lt; <span class="stringliteral">&quot;Formatting Morning QA sheet...\n\n&quot;</span>;</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;        <span class="keywordflow">for</span>(<span class="keyword">auto</span>&amp;&amp; line : names_sheet)</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;        {</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;            <span class="keyword">auto</span> company = line[0], project = line[1];</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160; </div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;            <span class="comment">// The projects don&#39;t all have a company name listed next to them</span></div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;            <span class="comment">// For example, if the company has multiple carriers it only lists the</span></div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;            <span class="comment">// name next to the first project. This caches that name so that all</span></div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;            <span class="comment">// projects under the same company have a company name listed when </span></div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;            <span class="comment">// the data is entered into the output file.</span></div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;            <span class="keywordflow">if</span>(company != <span class="stringliteral">&quot;&quot;</span>) cached_company_name = company;</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;            <span class="keywordflow">else</span> <span class="keywordflow">if</span>(company == <span class="stringliteral">&quot;&quot;</span> &amp;&amp; project != <span class="stringliteral">&quot;&quot;</span>) company = line[0] = cached_company_name;</div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;            <span class="keywordflow">else</span> <span class="keywordflow">if</span>(company == <span class="stringliteral">&quot;&quot;</span> &amp;&amp; project == <span class="stringliteral">&quot;_&quot;</span>) { outfile &lt;&lt; <span class="charliteral">&#39;\n&#39;</span>; <span class="keywordflow">continue</span>; }</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160; </div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;            <span class="comment">// The lookup uses the concatenation of the company and the project names</span></div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;            <span class="comment">// Then, insert into name_entries hash table for later usage in setting up throughput sheet.</span></div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;            <span class="keyword">auto</span> str = company+project;</div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;            <span class="keywordflow">if</span>(company != <span class="stringliteral">&quot;_&quot;</span> &amp;&amp; project != <span class="stringliteral">&quot;_&quot;</span>) name_entries.insert({str, line});</div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160; </div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;            <span class="keyword">static</span> <span class="keywordtype">int</span> ws_count = 0; <span class="comment">//Whitespace count (merely for logging purposes)</span></div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;            <span class="keywordflow">if</span>(<span class="keyword">auto</span> search = data_entries.find(str); search != std::end(data_entries) &amp;&amp; search-&gt;first != <span class="stringliteral">&quot;&quot;</span>)</div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;            {</div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;<span class="preprocessor">                #define out(x,y) ( (x)[y] == &quot;&quot;</span>? &quot;n/a&quot; : (x)[y]  )</div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;                outfile &lt;&lt; out(search-&gt;second,0) &lt;&lt; <span class="charliteral">&#39;,&#39;</span> &lt;&lt; <span class="stringliteral">&quot;-&gt;&quot;</span> &lt;&lt; out(search-&gt;second,1) &lt;&lt; <span class="charliteral">&#39;,&#39;</span></div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;                        &lt;&lt; out(search-&gt;second,4) &lt;&lt; <span class="charliteral">&#39;,&#39;</span> &lt;&lt; out(search-&gt;second,6) &lt;&lt; <span class="charliteral">&#39;,&#39;</span>&lt;&lt; out(search-&gt;second,8) &lt;&lt; <span class="charliteral">&#39;,&#39;</span> &lt;&lt; out(search-&gt;second,10)</div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;                        &lt;&lt; <span class="stringliteral">&quot;,,no,n/a,no,n/a\n&quot;</span>;</div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;<span class="preprocessor">                #undef out</span></div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;            }</div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;            <span class="keywordflow">else</span> <span class="keywordflow">if</span>(project == <span class="stringliteral">&quot;_&quot;</span> || company == <span class="stringliteral">&quot;_&quot;</span> || project == <span class="stringliteral">&quot;&quot;</span> || company == <span class="stringliteral">&quot;&quot;</span>)</div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;            {</div>
-<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;                std::cout &lt;&lt; <span class="stringliteral">&quot;Skipping ws (&quot;</span> &lt;&lt; ++ws_count &lt;&lt; <span class="stringliteral">&quot;)\r&quot;</span>;</div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;                outfile &lt;&lt; <span class="charliteral">&#39;\n&#39;</span>;</div>
-<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;            }</div>
-<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;            <span class="keywordflow">else</span></div>
-<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;            {</div>
-<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;                ws_count = 0;</div>
-<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;                std::cout &lt;&lt; <span class="stringliteral">&quot;\u001b[31;1mCould not find:\u001b[37;1m    &quot;</span> &lt;&lt; company &lt;&lt; <span class="stringliteral">&quot;\u001b[0m - &quot;</span> &lt;&lt; project &lt;&lt; <span class="stringliteral">&quot;    \n&quot;</span>;</div>
-<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;                outfile &lt;&lt; company &lt;&lt; <span class="charliteral">&#39;,&#39;</span> &lt;&lt; project &lt;&lt; <span class="charliteral">&#39;,&#39;</span> &lt;&lt; <span class="stringliteral">&quot;ERR,ERR,ERR,ERR\n&quot;</span>;</div>
-<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;            }</div>
-<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;        }</div>
-<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160; </div>
-<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;        std::cout &lt;&lt; <span class="stringliteral">&quot;\n\u001b[32;1mMorning QA Sheet successfully formatted.\u001b[0m\n Formatting Throughput sheet...\n&quot;</span>;</div>
-<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160; </div>
-<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;        <span class="comment">//Counters</span></div>
-<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;        <span class="keywordtype">int</span> total_ATT{}, total_verizon{}, total_sprint{}, total_tmobile{}, total_entries{};</div>
-<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;        <span class="keywordtype">int</span> only_ATT{}, only_verizon{}, only_sprint{}, only_tmobile{};</div>
-<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;        <span class="keywordtype">int</span> all{};</div>
-<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160; </div>
-<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;        std::vector&lt;Line&gt; D2S{};</div>
-<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160; </div>
-<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;        std::regex r{R<span class="stringliteral">&quot;~(\&zwj;(([0-9]+)\).+)~&quot;}; </span><span class="comment">//Regular expression to extract provider number</span></div>
-<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;        <span class="keywordtype">int</span> unknown_providers{};</div>
-<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160; </div>
-<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;        <span class="comment">//Column titles</span></div>
-<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;        t_outfile &lt;&lt; <span class="stringliteral">&quot;,Company,Project,Campaign,Drip Name,Drip ID, ATT, Sprint,T-Mobile,Verizon,Tested,Edited\n&quot;</span>;</div>
-<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160; </div>
-<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;        <span class="comment">//Delete unnecessary projects on throughput sheet</span></div>
-<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;        <span class="keywordflow">for</span>(<span class="keyword">auto</span>&amp;&amp; line : throughput_sheet)</div>
-<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;        {</div>
-<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;            <span class="keywordtype">bool</span> ATT{}, verizon{}, sprint{}, tmobile{};</div>
-<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;            <span class="keyword">auto</span> str = line[1] + line[2]; <span class="comment">//Lookup based on concatenation, as before</span></div>
-<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;            <span class="keywordflow">if</span>(<span class="keyword">auto</span> search = name_entries.find(str); search != std::end(name_entries))</div>
-<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;            {</div>
-<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;                ++total_entries;</div>
-<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160; </div>
-<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;                <span class="comment">//Add to list of projects that will be in final throughput sheet</span></div>
-<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;                D2S.push_back(line);</div>
-<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160; </div>
-<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;<span class="preprocessor">                #define provider_block()\</span></div>
-<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;<span class="preprocessor">                {\</span></div>
-<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;<span class="preprocessor">                    if(std::smatch m; std::regex_match(dat, m, r))\</span></div>
-<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;<span class="preprocessor">                    {\</span></div>
-<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;<span class="preprocessor">                        if(auto search = provider_entries.find(m[1]); search != std::end(provider_entries)) ++search-&gt;second.second;\</span></div>
-<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;<span class="preprocessor">                        else { ++unknown_providers; provider_entries.insert({m[1],{&quot;UNKNOWN&quot;</span>,1}}); }\</div>
-<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;                    }\</div>
-<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;                }</div>
-<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160; </div>
-<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;                <span class="comment">//Update total blocks and provider blocks</span></div>
-<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;                <span class="keywordflow">if</span>(<span class="keyword">auto</span> dat = line[6]; dat != <span class="stringliteral">&quot;&quot;</span> &amp;&amp; dat != <span class="stringliteral">&quot;_&quot;</span>){ ATT     = ++total_ATT;     provider_block(); }</div>
-<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;                <span class="keywordflow">if</span>(<span class="keyword">auto</span> dat = line[7]; dat != <span class="stringliteral">&quot;&quot;</span> &amp;&amp; dat != <span class="stringliteral">&quot;_&quot;</span>){ sprint  = ++total_sprint;  provider_block(); }</div>
-<div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;                <span class="keywordflow">if</span>(<span class="keyword">auto</span> dat = line[8]; dat != <span class="stringliteral">&quot;&quot;</span> &amp;&amp; dat != <span class="stringliteral">&quot;_&quot;</span>){ tmobile = ++total_tmobile; provider_block(); }</div>
-<div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160;                <span class="keywordflow">if</span>(<span class="keyword">auto</span> dat = line[9]; dat != <span class="stringliteral">&quot;&quot;</span> &amp;&amp; dat != <span class="stringliteral">&quot;_&quot;</span>){ verizon = ++total_verizon; provider_block(); }</div>
-<div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160; </div>
-<div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160;<span class="preprocessor">                #undef provider_block</span></div>
-<div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160; </div>
-<div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160;                <span class="comment">//Update exclusive blocks</span></div>
-<div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160;                <span class="keywordflow">if</span>(ATT &amp;&amp; !sprint &amp;&amp; !tmobile &amp;&amp; !verizon) ++only_ATT;</div>
-<div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160;                <span class="keywordflow">if</span>(!ATT &amp;&amp; sprint &amp;&amp; !tmobile &amp;&amp; !verizon) ++only_sprint;</div>
-<div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160;                <span class="keywordflow">if</span>(!ATT &amp;&amp; !sprint &amp;&amp; tmobile &amp;&amp; !verizon) ++only_tmobile;</div>
-<div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;                <span class="keywordflow">if</span>(!ATT &amp;&amp; !sprint &amp;&amp; !tmobile &amp;&amp; verizon) ++only_verizon;</div>
-<div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160; </div>
-<div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;                <span class="comment">//Update blocks on all carriers</span></div>
-<div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;                <span class="keywordflow">if</span>(ATT &amp;&amp; sprint &amp;&amp; tmobile &amp;&amp; verizon) ++all;</div>
-<div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;            }</div>
-<div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160;        }</div>
-<div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160; </div>
-<div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;        <span class="comment">//Lines in throughput sheet are lexicographically sorted. </span></div>
-<div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;        <span class="comment">//Stable sort is used to preserve relative order of elements, but is slightly less efficient</span></div>
-<div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;        std::       sort(std::begin(D2S), std::end(D2S), [](<span class="keyword">auto</span>&amp;&amp; a, <span class="keyword">auto</span>&amp;&amp; b){ <span class="keywordflow">return</span> a[3] &lt; b[3]; }); <span class="comment">//First sort by campaign name</span></div>
-<div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;        std::stable_sort(std::begin(D2S), std::end(D2S), [](<span class="keyword">auto</span>&amp;&amp; a, <span class="keyword">auto</span>&amp;&amp; b){ <span class="keywordflow">return</span> a[2] &lt; b[2]; }); <span class="comment">//Then sort by project name</span></div>
-<div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;        std::stable_sort(std::begin(D2S), std::end(D2S), [](<span class="keyword">auto</span>&amp;&amp; a, <span class="keyword">auto</span>&amp;&amp; b){ <span class="keywordflow">return</span> a[1] &lt; b[1]; }); <span class="comment">//Finally sort by company name</span></div>
-<div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160; </div>
-<div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160;        <span class="comment">//Output only D2S projects that are on the names sheet.</span></div>
-<div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160;        <span class="keywordflow">for</span>(<span class="keyword">auto</span>&amp;&amp; line : D2S)</div>
-<div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160;           <span class="keywordflow">for</span>(<span class="keywordtype">int</span> i = 0; i &lt; 10; ++i) { <span class="keyword">auto</span> val = line[i]; t_outfile &lt;&lt; (val==<span class="stringliteral">&quot;_&quot;</span>?<span class="stringliteral">&quot; &quot;</span>:val) &lt;&lt; (i &lt; 9?<span class="charliteral">&#39;,&#39;</span>:<span class="charliteral">&#39;\n&#39;</span>); }</div>
-<div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160; </div>
-<div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160;        <span class="comment">//Output stats (to file and stdout)</span></div>
-<div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;        std::cout &lt;&lt; <span class="stringliteral">&quot;\u001b[32;1mThroughput sheet successfully formatted.\u001b[0m\n Outputting statistics to stdout...\n\n&quot;</span>;</div>
-<div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160; </div>
-<div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160;        <span class="keyword">auto</span> tp_sz = throughput_sheet.size();</div>
-<div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160;        std::ostream* out = &amp;std::cout;</div>
-<div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160;        <span class="keywordtype">bool</span> outflag = <span class="keyword">false</span>;</div>
-<div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160;        <span class="keywordflow">if</span>(!log) std::cerr &lt;&lt; <span class="stringliteral">&quot;\u001b[31;1mError: could not open \u001b[35;1moutput/log.csv\u001b[0m\n&quot;</span>;</div>
-<div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160;DUMP:</div>
-<div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160;        (*out) &lt;&lt; (!outflag?<span class="stringliteral">&quot;\u001b[37;1m&quot;</span>:<span class="stringliteral">&quot;&quot;</span>) &lt;&lt; <span class="stringliteral">&quot;Number of entries before formatting: &quot;</span> &lt;&lt; (!outflag?<span class="stringliteral">&quot;\u001b[0m&quot;</span>:<span class="stringliteral">&quot;,&quot;</span>) &lt;&lt; tp_sz &lt;&lt; <span class="stringliteral">&quot;\n&quot;</span>;</div>
-<div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160;        (*out) &lt;&lt; (!outflag?<span class="stringliteral">&quot;\u001b[37;1m&quot;</span>:<span class="stringliteral">&quot;&quot;</span>) &lt;&lt; <span class="stringliteral">&quot;Total number of entries deleted: &quot;</span> &lt;&lt; (!outflag?<span class="stringliteral">&quot;\u001b[0m&quot;</span>:<span class="stringliteral">&quot;,&quot;</span>) &lt;&lt; tp_sz - total_entries &lt;&lt; <span class="stringliteral">&quot;\n&quot;</span>;</div>
-<div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160;        (*out) &lt;&lt; (!outflag?<span class="stringliteral">&quot;\u001b[37;1m&quot;</span>:<span class="stringliteral">&quot;&quot;</span>) &lt;&lt; <span class="stringliteral">&quot;Final size of throughput sheet (entries): &quot;</span> &lt;&lt; (!outflag?<span class="stringliteral">&quot;\u001b[0m&quot;</span>:<span class="stringliteral">&quot;,&quot;</span>) &lt;&lt; total_entries &lt;&lt; <span class="stringliteral">&quot;\n\n&quot;</span>;</div>
-<div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160; </div>
-<div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160;        (*out) &lt;&lt; (!outflag?<span class="stringliteral">&quot;\u001b[37;1m&quot;</span>:<span class="stringliteral">&quot;&quot;</span>) &lt;&lt; <span class="stringliteral">&quot;Total ATT Blocks: &quot;</span> &lt;&lt; (!outflag?<span class="stringliteral">&quot;\u001b[0m&quot;</span>:<span class="stringliteral">&quot;,&quot;</span>) &lt;&lt; total_ATT &lt;&lt; <span class="charliteral">&#39;\n&#39;</span>;</div>
-<div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160;        (*out) &lt;&lt; (!outflag?<span class="stringliteral">&quot;\u001b[37;1m&quot;</span>:<span class="stringliteral">&quot;&quot;</span>) &lt;&lt; <span class="stringliteral">&quot;Total Verizon Blocks: &quot;</span> &lt;&lt; (!outflag?<span class="stringliteral">&quot;\u001b[0m&quot;</span>:<span class="stringliteral">&quot;,&quot;</span>) &lt;&lt; total_verizon &lt;&lt; <span class="charliteral">&#39;\n&#39;</span>;</div>
-<div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160;        (*out) &lt;&lt; (!outflag?<span class="stringliteral">&quot;\u001b[37;1m&quot;</span>:<span class="stringliteral">&quot;&quot;</span>) &lt;&lt; <span class="stringliteral">&quot;Total Sprint Blocks: &quot;</span> &lt;&lt; (!outflag?<span class="stringliteral">&quot;\u001b[0m&quot;</span>:<span class="stringliteral">&quot;,&quot;</span>) &lt;&lt; total_sprint &lt;&lt; <span class="charliteral">&#39;\n&#39;</span>;</div>
-<div class="line"><a name="l00179"></a><span class="lineno">  179</span>&#160;        (*out) &lt;&lt; (!outflag?<span class="stringliteral">&quot;\u001b[37;1m&quot;</span>:<span class="stringliteral">&quot;&quot;</span>) &lt;&lt; <span class="stringliteral">&quot;Total T-Mobile Blocks: &quot;</span> &lt;&lt; (!outflag?<span class="stringliteral">&quot;\u001b[0m&quot;</span>:<span class="stringliteral">&quot;,&quot;</span>) &lt;&lt; total_tmobile &lt;&lt; <span class="stringliteral">&quot;\n\n&quot;</span>;</div>
-<div class="line"><a name="l00180"></a><span class="lineno">  180</span>&#160; </div>
-<div class="line"><a name="l00181"></a><span class="lineno">  181</span>&#160;        (*out) &lt;&lt; (!outflag?<span class="stringliteral">&quot;\u001b[37;1m&quot;</span>:<span class="stringliteral">&quot;&quot;</span>) &lt;&lt; <span class="stringliteral">&quot;Exclusive ATT Blocks: &quot;</span> &lt;&lt; (!outflag?<span class="stringliteral">&quot;\u001b[0m&quot;</span>:<span class="stringliteral">&quot;,&quot;</span>) &lt;&lt; only_ATT &lt;&lt; <span class="charliteral">&#39;\n&#39;</span>;</div>
-<div class="line"><a name="l00182"></a><span class="lineno">  182</span>&#160;        (*out) &lt;&lt; (!outflag?<span class="stringliteral">&quot;\u001b[37;1m&quot;</span>:<span class="stringliteral">&quot;&quot;</span>) &lt;&lt; <span class="stringliteral">&quot;Exclusive Verizon Blocks: &quot;</span> &lt;&lt; (!outflag?<span class="stringliteral">&quot;\u001b[0m&quot;</span>:<span class="stringliteral">&quot;,&quot;</span>) &lt;&lt; only_verizon &lt;&lt; <span class="charliteral">&#39;\n&#39;</span>;</div>
-<div class="line"><a name="l00183"></a><span class="lineno">  183</span>&#160;        (*out) &lt;&lt; (!outflag?<span class="stringliteral">&quot;\u001b[37;1m&quot;</span>:<span class="stringliteral">&quot;&quot;</span>) &lt;&lt; <span class="stringliteral">&quot;Exclusive Sprint Blocks: &quot;</span> &lt;&lt; (!outflag?<span class="stringliteral">&quot;\u001b[0m&quot;</span>:<span class="stringliteral">&quot;,&quot;</span>) &lt;&lt; only_sprint &lt;&lt; <span class="charliteral">&#39;\n&#39;</span>;</div>
-<div class="line"><a name="l00184"></a><span class="lineno">  184</span>&#160;        (*out) &lt;&lt; (!outflag?<span class="stringliteral">&quot;\u001b[37;1m&quot;</span>:<span class="stringliteral">&quot;&quot;</span>) &lt;&lt; <span class="stringliteral">&quot;Exclusive T-Mobile Blocks: &quot;</span> &lt;&lt; (!outflag?<span class="stringliteral">&quot;\u001b[0m&quot;</span>:<span class="stringliteral">&quot;,&quot;</span>) &lt;&lt; only_tmobile &lt;&lt; <span class="stringliteral">&quot;\n\n&quot;</span>;</div>
-<div class="line"><a name="l00185"></a><span class="lineno">  185</span>&#160; </div>
-<div class="line"><a name="l00186"></a><span class="lineno">  186</span>&#160;        (*out) &lt;&lt; (!outflag?<span class="stringliteral">&quot;\u001b[37;1m&quot;</span>:<span class="stringliteral">&quot;&quot;</span>) &lt;&lt; <span class="stringliteral">&quot;All carrier Blocks: &quot;</span> &lt;&lt; (!outflag?<span class="stringliteral">&quot;\u001b[0m&quot;</span>:<span class="stringliteral">&quot;,&quot;</span>) &lt;&lt; all &lt;&lt; <span class="stringliteral">&quot;\n\n&quot;</span>;</div>
-<div class="line"><a name="l00187"></a><span class="lineno">  187</span>&#160; </div>
-<div class="line"><a name="l00188"></a><span class="lineno">  188</span>&#160;        <span class="keywordflow">for</span>(<span class="keyword">auto</span>&amp;&amp; [code, provider] : provider_entries)</div>
-<div class="line"><a name="l00189"></a><span class="lineno">  189</span>&#160;            (*out) &lt;&lt; (!outflag?<span class="stringliteral">&quot;\u001b[37;1m&quot;</span>:<span class="stringliteral">&quot;&quot;</span>) &lt;&lt; <span class="stringliteral">&quot;Total &quot;</span> &lt;&lt; provider.first &lt;&lt; <span class="stringliteral">&quot; (&quot;</span> &lt;&lt; code &lt;&lt; <span class="stringliteral">&quot;) blocks:&quot;</span> &lt;&lt; (!outflag?<span class="stringliteral">&quot;\u001b[0m &quot;</span>:<span class="stringliteral">&quot;,&quot;</span>) &lt;&lt; provider.second &lt;&lt; <span class="charliteral">&#39;\n&#39;</span>;</div>
-<div class="line"><a name="l00190"></a><span class="lineno">  190</span>&#160;        <span class="keywordflow">if</span>(!outflag &amp;&amp; log)</div>
-<div class="line"><a name="l00191"></a><span class="lineno">  191</span>&#160;        {</div>
-<div class="line"><a name="l00192"></a><span class="lineno">  192</span>&#160;            outflag = <span class="keyword">true</span>;</div>
-<div class="line"><a name="l00193"></a><span class="lineno">  193</span>&#160;            out = &amp;log;</div>
-<div class="line"><a name="l00194"></a><span class="lineno">  194</span>&#160;            std::cout &lt;&lt; <span class="stringliteral">&quot;\n\u001b[32;1mDone.\n\u001b[0m\nOutputting stats to \u001b[35;1moutput/log.csv\u001b[0m...&quot;</span>;</div>
-<div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160;            <span class="keywordflow">goto</span> DUMP;</div>
-<div class="line"><a name="l00196"></a><span class="lineno">  196</span>&#160;        }</div>
-<div class="line"><a name="l00197"></a><span class="lineno">  197</span>&#160; </div>
-<div class="line"><a name="l00198"></a><span class="lineno">  198</span>&#160;        <span class="keywordflow">if</span>(unknown_providers &gt; 0) std::cerr &lt;&lt; <span class="stringliteral">&quot;\n\u001b[31;1m&quot;</span> &lt;&lt; <span class="stringliteral">&quot;There are &quot;</span> &lt;&lt; unknown_providers &lt;&lt; <span class="stringliteral">&quot; unknown providers. Please update \u001b[35;1minput/providers.csv\u001b[0m&quot;</span> &lt;&lt; <span class="charliteral">&#39;\n&#39;</span>;</div>
-<div class="line"><a name="l00199"></a><span class="lineno">  199</span>&#160;        std::cout.put(<span class="charliteral">&#39;\n&#39;</span>);</div>
-<div class="line"><a name="l00200"></a><span class="lineno">  200</span>&#160;        std::cout &lt;&lt; <span class="stringliteral">&quot;\u001b[32;1mDone.\u001b[0m\n\n&quot;</span>;</div>
-<div class="line"><a name="l00201"></a><span class="lineno">  201</span>&#160; </div>
-<div class="line"><a name="l00202"></a><span class="lineno">  202</span>&#160;        <span class="comment">//If debugging is necessary, add debug lines here, then #define DEBUG above</span></div>
-<div class="line"><a name="l00203"></a><span class="lineno">  203</span>&#160;<span class="preprocessor">        #ifdef DEBUG</span></div>
-<div class="line"><a name="l00204"></a><span class="lineno">  204</span>&#160;            <span class="keywordflow">for</span>(<span class="keyword">auto</span>&amp;&amp; [first, second] : name_entries) std::cout &lt;&lt; second &lt;&lt; <span class="charliteral">&#39;\n&#39;</span>;</div>
-<div class="line"><a name="l00205"></a><span class="lineno">  205</span>&#160;            std::cout &lt;&lt; throughput_sheet &lt;&lt; std::endl;</div>
-<div class="line"><a name="l00206"></a><span class="lineno">  206</span>&#160;            <span class="keywordflow">for</span>(<span class="keyword">auto</span>&amp;&amp; line : throughput_sheet) std::cout &lt;&lt; line.size() &lt;&lt; <span class="charliteral">&#39; &#39;</span>;</div>
-<div class="line"><a name="l00207"></a><span class="lineno">  207</span>&#160;            std::cout.put(<span class="charliteral">&#39;\n&#39;</span>);</div>
-<div class="line"><a name="l00208"></a><span class="lineno">  208</span>&#160;<span class="preprocessor">        #endif</span></div>
-<div class="line"><a name="l00209"></a><span class="lineno">  209</span>&#160;    }</div>
+<p class="definition">Definition at line <a class="el" href="DailyQA_8cpp_source.html#l00037">37</a> of file <a class="el" href="DailyQA_8cpp_source.html">DailyQA.cpp</a>.</p>
+<div class="fragment"><div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;{</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    std::cout &lt;&lt; <span class="stringliteral">&quot;Formatting Morning QA sheet...\n\n&quot;</span>;</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    morning_QA();</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    std::cout &lt;&lt; <span class="stringliteral">&quot;\n\u001b[32;1mMorning QA Sheet successfully formatted.\u001b[0m\n &quot;</span>;</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160; </div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    std::cout &lt;&lt; <span class="stringliteral">&quot;Formatting Throughput sheet...\n&quot;</span>;</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    throughput();</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    std::cout &lt;&lt; <span class="stringliteral">&quot;\u001b[32;1mDone.\u001b[0m\n\n&quot;</span>;</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160; </div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    <span class="comment">//If debugging is necessary, add debug lines here, then #define DEBUG above</span></div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;<span class="preprocessor">    #ifdef DEBUG</span></div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;        <span class="keywordflow">for</span>(<span class="keyword">auto</span>&amp;&amp; [first, second] : threshold_entries) std::cout &lt;&lt; first &lt;&lt; <span class="stringliteral">&quot;----&gt;&quot;</span> &lt;&lt; second &lt;&lt; <span class="charliteral">&#39;\n&#39;</span>;</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;        std::cout &lt;&lt; threshold_sheet &lt;&lt; std::endl;</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;        <span class="keywordflow">for</span>(<span class="keyword">auto</span>&amp;&amp; line : threshold_sheet) std::cout &lt;&lt; line.size() &lt;&lt; <span class="charliteral">&#39; &#39;</span>;</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;        std::cout.put(<span class="charliteral">&#39;\n&#39;</span>);</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;<span class="preprocessor">    #endif</span></div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;}</div>
 </div><!-- fragment -->
 </div>
 </div>
-<hr/>The documentation for this class was generated from the following file:<ul>
+<hr/>The documentation for this class was generated from the following files:<ul>
+<li><a class="el" href="DailyQA_8h_source.html">DailyQA.h</a></li>
 <li><a class="el" href="DailyQA_8cpp_source.html">DailyQA.cpp</a></li>
 </ul>
 </div><!-- contents -->

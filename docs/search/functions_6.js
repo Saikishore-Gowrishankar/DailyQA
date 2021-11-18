@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['spreadsheet_19',['Spreadsheet',['../classSpreadsheet.html#a6faf4f089877ba2add1b89240cedffe6',1,'Spreadsheet']]]
+  ['to_5fraw_19',['to_raw',['../classLine.html#aa88f3f4350fbe270f83caceae07955f8',1,'Line']]]
 ];
