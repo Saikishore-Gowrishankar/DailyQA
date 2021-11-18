@@ -8,5 +8,6 @@ run:
 	cd ..; ./DailyQA 
 docs:
 	rm -r ../docs/*
+	doxygen -u dconfig
 	doxygen dconfig
 	mv ../docs/html/* ../docs
