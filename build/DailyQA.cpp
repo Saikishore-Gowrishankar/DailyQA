@@ -8,6 +8,7 @@
 
 /* Standard dependencies */
 #include <string_view>
+#include <sstream>
 #include <iostream>
 #include <regex>
 #include <utility>
@@ -16,41 +17,77 @@
 /* Local dependencies */
 #include "DailyQA.h"
 
-//Returns the floating-point value of click rate percentage (format: x.xx% -> x.xx)
+//Returns the floating-point value of click rate percentage (format: "x.xx%" -> x.xx)
 static constexpr double find_threshold(auto const& rate)
 {
     return std::stod(rate == "n/a"?"0.0":rate.substr(0,'%')); //(std::stod(_7v) + std::stod(_3v) + std::stod(_2v) + std::stod(_1v))/4;
 }
 
-DailyQA::DailyQA(std::string_view names, std::string_view data, std::string_view throughput, std::string_view providers, std::string_view thresholds)
+DailyQA::DailyQA(std::string_view names, std::string_view data, std::string_view throughput, std::string_view providers, std::string_view thresholds,
+                 std::string_view evening_data)
          : names_sheet{names.data()},
-           data_sheet{data.data()},
+           morning_sheet{data.data()},
            throughput_sheet{throughput.data(), 10}, //Each line of throughput sheet has 10 cells
            providers_sheet{providers.data()},
-           threshold_sheet{thresholds.data(), 4}
+           threshold_sheet{thresholds.data(), 4},
+           evening_sheet{evening_data.data(), 7}
 {
     // Insert data into a hash map for easy lookup
-    for(auto&& line : data_sheet) data_entries.insert({line[0]+line[1], line});
     for(auto&& line : providers_sheet) provider_entries.insert({line[0], {line[1], 0} });
+
 }
 
 void DailyQA::run()
 {
-    std::cout << "Formatting Morning QA sheet...\n\n";
-    morning_QA();
-    std::cout << "\n\u001b[32;1mMorning QA Sheet successfully formatted.\u001b[0m\n ";
+    while(true)
+    {
+        int in{};
+        std::cout << "Please select from the following menu: \n"
+                  << "1. Morning QA Setup\n"
+                  << "2. Afternoon QA Setup\n"
+                  << "3. Evening QA Setup\n"
+                  << "4. Other Options\n\n"
+                  << "Your selection (number): ";
+        std::cin >> in;
+        if(!std::cin)
+        {
+            std::cin.clear();
+            std::cin.ignore(std::numeric_limits<std::streamsize> ::max(), '\n');
+            std::cerr << "\u001b[31;1mERROR:\u001b[37;1m Unrecognized option\n";
+            continue;
+        }
 
-    std::cout << "Formatting Throughput sheet...\n";
-    throughput();
-    std::cout << "\u001b[32;1mDone.\u001b[0m\n\n";
+        switch(in)
+        {
+            case 1:
+                std::cout << "Formatting Morning QA sheet...\n\n";
+                for(auto&& line : morning_sheet) morning_entries.insert({line[0]+line[1], line});
+                morning_QA();
+                std::cout << "\n\u001b[32;1mMorning QA Sheet successfully formatted.\u001b[0m\n ";
 
-    //If debugging is necessary, add debug lines here, then #define DEBUG above
-    #ifdef DEBUG
-        for(auto&& [first, second] : threshold_entries) std::cout << first << "---->" << second << '\n';
-        std::cout << threshold_sheet << std::endl;
-        for(auto&& line : threshold_sheet) std::cout << line.size() << ' ';
-        std::cout.put('\n');
-    #endif
+                std::cout << "Formatting Throughput sheet...\n";
+                throughput();
+                std::cout << "\u001b[32;1mDone.\u001b[0m\n\n";
+                return;
+            case 2: return;
+            case 3:
+                for(auto&& line : evening_sheet) evening_entries.insert({line[0]+line[1], line});
+                std::cout << evening_sheet;
+                return;
+            default:
+                //If debugging is necessary, add debug lines here, then #define DEBUG above
+                #ifdef DEBUG
+                    for(auto&& [first, second] : threshold_entries) std::cout << first << "---->" << second << '\n';
+                    std::cout << threshold_sheet << std::endl;
+                    for(auto&& line : threshold_sheet) std::cout << line.size() << ' ';
+                    std::cout.put('\n');
+                    return;
+                #else
+                    std::cerr << "\u001b[31;1mERROR:\u001b[37;1m invalid selection\n";
+                    continue;
+                #endif
+        }
+    }
 }
 
 
@@ -122,7 +159,7 @@ void DailyQA::morning_QA()
         auto str = company+project;
 
         static int ws_count = 0; //Whitespace count (merely for logging purposes)
-        if(auto search = data_entries.find(str); search != std::end(data_entries) /*&& search->first != ""*/)
+        if(auto search = morning_entries.find(str); search != std::end(morning_entries) /*&& search->first != ""*/)
         {
             #define out(x,y) ( (x)[y] == ""? "n/a" : (x)[y]  )
             auto const& _7 = out(search->second,4);
@@ -277,7 +314,8 @@ int main()
 
     std::cout << "opening \u001b[35;1minput/names.csv\u001b[0m, \u001b[35;1minput/data.csv\u001b[0m, and \u001b[35;1minput/throughput.csv\u001b[0m\n";
 
-    DailyQA& doc = DailyQA::get_singleton("input/names.csv", "input/data.csv","input/throughput.csv", "input/providers.csv", "input/thresholds.csv");
+    DailyQA& doc = DailyQA::get_singleton("input/names.csv", "input/data.csv","input/throughput.csv", "input/providers.csv", "input/thresholds.csv",
+                                          "input/evening_data.csv");
 
     std::cout << "\u001b[32;1mSuccessfully opened aforementioned files.\u001b[0m\n\nRunning main program.\n";
 

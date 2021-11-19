@@ -16,17 +16,12 @@ can easily be copy/pasted into the daily QA sheet.
 class DailyQA
 {
 public:
-    static
-    DailyQA& get_singleton(std::string_view names,
-                           std::string_view data,
-                           std::string_view throughput,
-                           std::string_view providers,
-                           std::string_view thresholds)
+    template<typename ... Args>
+    static DailyQA& get_singleton(Args... args)
     {
-        static DailyQA doc{names, data, throughput, providers, thresholds};
+        static DailyQA doc{args...};
         return doc;
     }
-
 
     /**
      * run()
@@ -49,14 +44,14 @@ private:
             std::string_view data,
             std::string_view throughput,
             std::string_view providers,
-            std::string_view thresholds);
-
-
+            std::string_view thresholds,
+            std::string_view evening_data);
 
     //Stages
     //TODO: Add Afternoon + Evening QA, + possible others
     void morning_QA();
     void throughput();
+    void evening_QA();
 
     //Adds entries to respective hash tables (increase modularity, reduce dependencies)
     void add_throughput_entries();
@@ -64,14 +59,17 @@ private:
     void thresholds();
 
     //Sheets that are opened
-    Spreadsheet names_sheet, data_sheet, throughput_sheet;    // For the names and data and throughput
+    Spreadsheet names_sheet, morning_sheet, throughput_sheet; // For the names and data and throughput
     Spreadsheet providers_sheet;			      // Stores the mapping between provider name and number
     Spreadsheet threshold_sheet;			      // Stores the threshholds for DailyQA setup
+    Spreadsheet evening_sheet;				      // Evening data sheet
 
     //Parsed data stored in hash tables for easy lookup
-    std::unordered_map<std::string, Line> data_entries{};     // Stores data entries
-    std::unordered_map<std::string, Line> name_entries{};     // Stores name entries (for throughput sheet)
-    std::unordered_set<std::string> throughput_entries{};     // Stores name entries (for throughput sheet)
+    std::unordered_map<std::string, Line> morning_entries{};    // Stores morning data entries
+    std::unordered_map<std::string, Line> afternoon_entries{};  // Stores afternoon data entries
+    std::unordered_map<std::string, Line> evening_entries{};    // Stores evening data entries
+    std::unordered_map<std::string, Line> name_entries{};       // Stores name entries (for throughput sheet)
+    std::unordered_set<std::string> throughput_entries{};       // Stores name entries (for throughput sheet)
     std::unordered_map<std::string, std::pair<std::string, int>> provider_entries{}; 	// Stores provider mappings
     std::unordered_map<std::string, std::pair<double, double>> threshold_entries{};     // Stores threshold entries (for throughput sheet)
 
