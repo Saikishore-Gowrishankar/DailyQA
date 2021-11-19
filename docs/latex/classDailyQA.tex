@@ -17,8 +17,8 @@ void \mbox{\hyperlink{classDailyQA_aced4765d09bc48d21cda6e2825fb46a1}{run}} ()
 \doxysubsection*{Static Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{classDailyQA_a73395b13eccc33e2738f6a9b1043d1a9}\label{classDailyQA_a73395b13eccc33e2738f6a9b1043d1a9}} 
-static \mbox{\hyperlink{classDailyQA}{Daily\+QA}} \& {\bfseries get\+\_\+singleton} (std\+::string\+\_\+view names, std\+::string\+\_\+view data, std\+::string\+\_\+view throughput, std\+::string\+\_\+view providers, std\+::string\+\_\+view thresholds)
+\mbox{\Hypertarget{classDailyQA_a77e5926799a396ed44ba7b90b58baecb}\label{classDailyQA_a77e5926799a396ed44ba7b90b58baecb}} 
+{\footnotesize template$<$typename ... Args$>$ }\\static \mbox{\hyperlink{classDailyQA}{Daily\+QA}} \& {\bfseries get\+\_\+singleton} (Args... args)
 \end{DoxyCompactItemize}
 
 
@@ -44,27 +44,61 @@ Runs the main program and outputs into respective files.
 
 \mbox{\hyperlink{classDailyQA_aced4765d09bc48d21cda6e2825fb46a1}{run()}} 
 
-Definition at line 37 of file Daily\+QA.\+cpp.
+Definition at line 40 of file Daily\+QA.\+cpp.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{38 \{}
-\DoxyCodeLine{39     std::cout << \textcolor{stringliteral}{"{}Formatting Morning QA sheet...\(\backslash\)n\(\backslash\)n"{}};}
-\DoxyCodeLine{40     morning\_QA();}
-\DoxyCodeLine{41     std::cout << \textcolor{stringliteral}{"{}\(\backslash\)n\(\backslash\)u001b[32;1mMorning QA Sheet successfully formatted.\(\backslash\)u001b[0m\(\backslash\)n "{}};}
-\DoxyCodeLine{42 }
-\DoxyCodeLine{43     std::cout << \textcolor{stringliteral}{"{}Formatting Throughput sheet...\(\backslash\)n"{}};}
-\DoxyCodeLine{44     throughput();}
-\DoxyCodeLine{45     std::cout << \textcolor{stringliteral}{"{}\(\backslash\)u001b[32;1mDone.\(\backslash\)u001b[0m\(\backslash\)n\(\backslash\)n"{}};}
-\DoxyCodeLine{46 }
-\DoxyCodeLine{47     \textcolor{comment}{//If debugging is necessary, add debug lines here, then \#define DEBUG above}}
-\DoxyCodeLine{48 \textcolor{preprocessor}{    \#ifdef DEBUG}}
-\DoxyCodeLine{49         \textcolor{keywordflow}{for}(\textcolor{keyword}{auto}\&\& [first, second] : threshold\_entries) std::cout << first << \textcolor{stringliteral}{"{}-\/-\/-\/-\/>"{}} << second << \textcolor{charliteral}{'\(\backslash\)n'};}
-\DoxyCodeLine{50         std::cout << threshold\_sheet << std::endl;}
-\DoxyCodeLine{51         \textcolor{keywordflow}{for}(\textcolor{keyword}{auto}\&\& line : threshold\_sheet) std::cout << line.size() << \textcolor{charliteral}{' '};}
-\DoxyCodeLine{52         std::cout.put(\textcolor{charliteral}{'\(\backslash\)n'});}
-\DoxyCodeLine{53 \textcolor{preprocessor}{    \#endif}}
-\DoxyCodeLine{54 \}}
+\DoxyCodeLine{41 \{}
+\DoxyCodeLine{42     \textcolor{keywordflow}{while}(\textcolor{keyword}{true})}
+\DoxyCodeLine{43     \{}
+\DoxyCodeLine{44         \textcolor{keywordtype}{int} in\{\};}
+\DoxyCodeLine{45         std::cout << \textcolor{stringliteral}{"{}Please select from the following menu: \(\backslash\)n"{}}}
+\DoxyCodeLine{46                   << \textcolor{stringliteral}{"{}1. Morning QA Setup\(\backslash\)n"{}}}
+\DoxyCodeLine{47                   << \textcolor{stringliteral}{"{}2. Afternoon QA Setup\(\backslash\)n"{}}}
+\DoxyCodeLine{48                   << \textcolor{stringliteral}{"{}3. Evening QA Setup\(\backslash\)n"{}}}
+\DoxyCodeLine{49                   << \textcolor{stringliteral}{"{}4. Other Options\(\backslash\)n\(\backslash\)n"{}}}
+\DoxyCodeLine{50                   << \textcolor{stringliteral}{"{}Your selection (number): "{}};}
+\DoxyCodeLine{51         std::cin >> in;}
+\DoxyCodeLine{52         \textcolor{keywordflow}{if}(!std::cin)}
+\DoxyCodeLine{53         \{}
+\DoxyCodeLine{54             std::cin.clear();}
+\DoxyCodeLine{55             std::cin.ignore(std::numeric\_limits<std::streamsize> ::max(), \textcolor{charliteral}{'\(\backslash\)n'});}
+\DoxyCodeLine{56             std::cerr << \textcolor{stringliteral}{"{}\(\backslash\)u001b[31;1mERROR:\(\backslash\)u001b[37;1m Unrecognized option\(\backslash\)n"{}};}
+\DoxyCodeLine{57             \textcolor{keywordflow}{continue};}
+\DoxyCodeLine{58         \}}
+\DoxyCodeLine{59 }
+\DoxyCodeLine{60         \textcolor{keywordflow}{switch}(in)}
+\DoxyCodeLine{61         \{}
+\DoxyCodeLine{62             \textcolor{keywordflow}{case} 1:}
+\DoxyCodeLine{63                 std::cout << \textcolor{stringliteral}{"{}Formatting Morning QA sheet...\(\backslash\)n\(\backslash\)n"{}};}
+\DoxyCodeLine{64                 \textcolor{keywordflow}{for}(\textcolor{keyword}{auto}\&\& line : morning\_sheet) morning\_entries.insert(\{line[0]+line[1], line\});}
+\DoxyCodeLine{65                 morning\_QA();}
+\DoxyCodeLine{66                 std::cout << \textcolor{stringliteral}{"{}\(\backslash\)n\(\backslash\)u001b[32;1mMorning QA Sheet successfully formatted.\(\backslash\)u001b[0m\(\backslash\)n "{}};}
+\DoxyCodeLine{67 }
+\DoxyCodeLine{68                 std::cout << \textcolor{stringliteral}{"{}Formatting Throughput sheet...\(\backslash\)n"{}};}
+\DoxyCodeLine{69                 throughput();}
+\DoxyCodeLine{70                 std::cout << \textcolor{stringliteral}{"{}\(\backslash\)u001b[32;1mDone.\(\backslash\)u001b[0m\(\backslash\)n\(\backslash\)n"{}};}
+\DoxyCodeLine{71                 \textcolor{keywordflow}{return};}
+\DoxyCodeLine{72             \textcolor{keywordflow}{case} 2: \textcolor{keywordflow}{return};}
+\DoxyCodeLine{73             \textcolor{keywordflow}{case} 3:}
+\DoxyCodeLine{74                 \textcolor{keywordflow}{for}(\textcolor{keyword}{auto}\&\& line : evening\_sheet) evening\_entries.insert(\{line[0]+line[1], line\});}
+\DoxyCodeLine{75                 std::cout << evening\_sheet;}
+\DoxyCodeLine{76                 \textcolor{keywordflow}{return};}
+\DoxyCodeLine{77             \textcolor{keywordflow}{default}:}
+\DoxyCodeLine{78                 \textcolor{comment}{//If debugging is necessary, add debug lines here, then \#define DEBUG above}}
+\DoxyCodeLine{79 \textcolor{preprocessor}{                \#ifdef DEBUG}}
+\DoxyCodeLine{80                     \textcolor{keywordflow}{for}(\textcolor{keyword}{auto}\&\& [first, second] : threshold\_entries) std::cout << first << \textcolor{stringliteral}{"{}-\/-\/-\/-\/>"{}} << second << \textcolor{charliteral}{'\(\backslash\)n'};}
+\DoxyCodeLine{81                     std::cout << threshold\_sheet << std::endl;}
+\DoxyCodeLine{82                     \textcolor{keywordflow}{for}(\textcolor{keyword}{auto}\&\& line : threshold\_sheet) std::cout << line.size() << \textcolor{charliteral}{' '};}
+\DoxyCodeLine{83                     std::cout.put(\textcolor{charliteral}{'\(\backslash\)n'});}
+\DoxyCodeLine{84                     \textcolor{keywordflow}{return};}
+\DoxyCodeLine{85 \textcolor{preprocessor}{                \#else}}
+\DoxyCodeLine{86                     std::cerr << \textcolor{stringliteral}{"{}\(\backslash\)u001b[31;1mERROR:\(\backslash\)u001b[37;1m invalid selection\(\backslash\)n"{}};}
+\DoxyCodeLine{87                     \textcolor{keywordflow}{continue};}
+\DoxyCodeLine{88 \textcolor{preprocessor}{                \#endif}}
+\DoxyCodeLine{89         \}}
+\DoxyCodeLine{90     \}}
+\DoxyCodeLine{91 \}}
 
 \end{DoxyCode}
 
