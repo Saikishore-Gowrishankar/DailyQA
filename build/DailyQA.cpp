@@ -13,6 +13,7 @@
 #include <regex>
 #include <utility>
 #include <algorithm>
+#include <cstdlib>
 
 /* Platform-specific dependencies */
 #include <stdlib.h>
@@ -52,7 +53,8 @@ void DailyQA::run()
                   << "1. Morning QA Setup\n"
                   << "2. Afternoon QA Setup\n"
                   << "3. Evening QA Setup\n"
-                  << "4. Other Options\n\n"
+                  << "4. Other Options\n"
+                  << "5. Quit\n\n"
                   << "Your selection (number): ";
         std::cin >> in;
         if(!std::cin)
@@ -92,6 +94,7 @@ void DailyQA::run()
                 std::cin.clear();
                 std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
                 [[fallthrough]];
+            case 5: std::exit(0); break;
             default:
                 //If debugging is necessary, add debug lines here, then #define DEBUG above
                 #ifdef DEBUG
