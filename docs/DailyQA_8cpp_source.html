@@ -453,28 +453,6 @@ $(function() {
 <div class="line"><a name="l00386"></a><span class="lineno">  386</span>&#160;    <span class="keywordflow">if</span>(unknown_providers &gt; 0) std::cerr &lt;&lt; <span class="stringliteral">&quot;\n\u001b[31;1m&quot;</span> &lt;&lt; <span class="stringliteral">&quot;There are &quot;</span> &lt;&lt; unknown_providers &lt;&lt; <span class="stringliteral">&quot; unknown providers. Please update \u001b[35;1minput/providers.csv\u001b[0m&quot;</span> &lt;&lt; <span class="charliteral">&#39;\n&#39;</span>;</div>
 <div class="line"><a name="l00387"></a><span class="lineno">  387</span>&#160;    std::cout.put(<span class="charliteral">&#39;\n&#39;</span>);</div>
 <div class="line"><a name="l00388"></a><span class="lineno">  388</span>&#160;}</div>
-<div class="line"><a name="l00389"></a><span class="lineno">  389</span>&#160; </div>
-<div class="line"><a name="l00390"></a><span class="lineno">  390</span>&#160;<span class="keywordtype">int</span> main()</div>
-<div class="line"><a name="l00391"></a><span class="lineno">  391</span>&#160;{</div>
-<div class="line"><a name="l00392"></a><span class="lineno">  392</span>&#160;    std::cout &lt;&lt; <span class="stringliteral">&quot;\u001b[36;1m\n--------------------------------------------------------------------------\u001b[0m\n&quot;</span>;</div>
-<div class="line"><a name="l00393"></a><span class="lineno">  393</span>&#160;    std::cout &lt;&lt; <span class="stringliteral">&quot;|\u001b[33;1mDaily QA Sheet generator\u001b[0m\n&quot;</span>;</div>
-<div class="line"><a name="l00394"></a><span class="lineno">  394</span>&#160;    std::cout &lt;&lt; <span class="stringliteral">&quot;\u001b[36;1m--------------------------------------------------------------------------\u001b[0m\n&quot;</span>;</div>
-<div class="line"><a name="l00395"></a><span class="lineno">  395</span>&#160; </div>
-<div class="line"><a name="l00396"></a><span class="lineno">  396</span>&#160;    std::cout &lt;&lt; <span class="stringliteral">&quot;opening \u001b[35;1minput/names.csv\u001b[0m, \u001b[35;1minput/data.csv\u001b[0m, and \u001b[35;1minput/throughput.csv\u001b[0m\n&quot;</span>;</div>
-<div class="line"><a name="l00397"></a><span class="lineno">  397</span>&#160; </div>
-<div class="line"><a name="l00398"></a><span class="lineno">  398</span>&#160;    <a class="code" href="classDailyQA.html">DailyQA</a>&amp; doc = DailyQA::get_singleton(<span class="stringliteral">&quot;input/names.csv&quot;</span>, <span class="stringliteral">&quot;input/data.csv&quot;</span>,<span class="stringliteral">&quot;input/throughput.csv&quot;</span>, <span class="stringliteral">&quot;input/providers.csv&quot;</span>, <span class="stringliteral">&quot;input/thresholds.csv&quot;</span>,</div>
-<div class="line"><a name="l00399"></a><span class="lineno">  399</span>&#160;                                          <span class="stringliteral">&quot;input/evening_data.csv&quot;</span>, <span class="stringliteral">&quot;input/afternoon_data.csv&quot;</span>);</div>
-<div class="line"><a name="l00400"></a><span class="lineno">  400</span>&#160; </div>
-<div class="line"><a name="l00401"></a><span class="lineno">  401</span>&#160;    std::cout &lt;&lt; <span class="stringliteral">&quot;\u001b[32;1mSuccessfully opened aforementioned files.\u001b[0m\n\nRunning main program.\n&quot;</span>;</div>
-<div class="line"><a name="l00402"></a><span class="lineno">  402</span>&#160; </div>
-<div class="line"><a name="l00403"></a><span class="lineno">  403</span>&#160;    doc.<a class="code" href="classDailyQA.html#aced4765d09bc48d21cda6e2825fb46a1">run</a>();</div>
-<div class="line"><a name="l00404"></a><span class="lineno">  404</span>&#160; </div>
-<div class="line"><a name="l00405"></a><span class="lineno">  405</span>&#160;    std::cout &lt;&lt; <span class="stringliteral">&quot;\u001b[36;1m--------------------------------------------------------------------------\u001b[0m\n&quot;</span>;</div>
-<div class="line"><a name="l00406"></a><span class="lineno">  406</span>&#160;    std::cout &lt;&lt; <span class="stringliteral">&quot;\nFinished. Find results in \u001b[35;1moutput/output.csv\u001b[0m and throughput results in \u001b[35;1moutput/t_output.csv\u001b[0m. Terminating.\n\n&quot;</span>;</div>
-<div class="line"><a name="l00407"></a><span class="lineno">  407</span>&#160; </div>
-<div class="line"><a name="l00408"></a><span class="lineno">  408</span>&#160;    <span class="keywordflow">return</span> 0;</div>
-<div class="line"><a name="l00409"></a><span class="lineno">  409</span>&#160;}</div>
-<div class="ttc" id="aclassDailyQA_html"><div class="ttname"><a href="classDailyQA.html">DailyQA</a></div><div class="ttdoc">DailyQA.</div><div class="ttdef"><b>Definition:</b> <a href="DailyQA_8h_source.html#l00016">DailyQA.h:17</a></div></div>
 <div class="ttc" id="aclassDailyQA_html_aced4765d09bc48d21cda6e2825fb46a1"><div class="ttname"><a href="classDailyQA.html#aced4765d09bc48d21cda6e2825fb46a1">DailyQA::run</a></div><div class="ttdeci">void run()</div><div class="ttdoc">Runs the main program and outputs into respective files.</div><div class="ttdef"><b>Definition:</b> <a href="DailyQA_8cpp_source.html#l00047">DailyQA.cpp:47</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
