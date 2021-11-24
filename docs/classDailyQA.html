@@ -112,70 +112,75 @@ template&lt;typename ... Args&gt; </td></tr>
 <p>Runs the main program and outputs into respective files. </p>
 <p><a class="el" href="classDailyQA.html#aced4765d09bc48d21cda6e2825fb46a1" title="Runs the main program and outputs into respective files.">run()</a> </p>
 
-<p class="definition">Definition at line <a class="el" href="DailyQA_8cpp_source.html#l00046">46</a> of file <a class="el" href="DailyQA_8cpp_source.html">DailyQA.cpp</a>.</p>
-<div class="fragment"><div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;{</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    <span class="keywordflow">while</span>(<span class="keyword">true</span>)</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    {</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;        <span class="keywordtype">int</span> in{}, ret{};</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;        std::cout &lt;&lt; <span class="stringliteral">&quot;\u001b[37;1mPlease select from the following menu:\u001b[0m\n&quot;</span></div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;                  &lt;&lt; <span class="stringliteral">&quot;1. Morning QA Setup\n&quot;</span></div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;                  &lt;&lt; <span class="stringliteral">&quot;2. Afternoon QA Setup\n&quot;</span></div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;                  &lt;&lt; <span class="stringliteral">&quot;3. Evening QA Setup\n&quot;</span></div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;                  &lt;&lt; <span class="stringliteral">&quot;4. Other Options\n\n&quot;</span></div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;                  &lt;&lt; <span class="stringliteral">&quot;Your selection (number): &quot;</span>;</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;        std::cin &gt;&gt; in;</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;        <span class="keywordflow">if</span>(!std::cin)</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;        {</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;            std::cin.clear();</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;            std::cin.ignore(std::numeric_limits&lt;std::streamsize&gt; ::max(), <span class="charliteral">&#39;\n&#39;</span>);</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;            std::cerr &lt;&lt; <span class="stringliteral">&quot;\u001b[31;1mERROR:\u001b[0m Unrecognized option\n&quot;</span>;</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;            <span class="keywordflow">continue</span>;</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;        }</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160; </div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;        <span class="keywordflow">switch</span>(in)</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;        {</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;            <span class="keywordflow">case</span> 1:</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;                std::cout &lt;&lt; <span class="stringliteral">&quot;Formatting Morning QA sheet...\n\n&quot;</span>;</div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;                <span class="keywordflow">for</span>(<span class="keyword">auto</span>&amp;&amp; line : morning_sheet) morning_entries.insert({line[0]+line[1], line});</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;                morning_QA();</div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;                std::cout &lt;&lt; <span class="stringliteral">&quot;\n\u001b[32;1mMorning QA Sheet successfully formatted.\u001b[0m\n &quot;</span>;</div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160; </div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;                std::cout &lt;&lt; <span class="stringliteral">&quot;Formatting Throughput sheet...\n&quot;</span>;</div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;                throughput();</div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;                std::cout &lt;&lt; <span class="stringliteral">&quot;\u001b[32;1mDone.\u001b[0m\n\n&quot;</span>;</div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;                <span class="keywordflow">return</span>;</div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;            <span class="keywordflow">case</span> 2:</div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;                <span class="keywordflow">for</span>(<span class="keyword">auto</span>&amp;&amp; line : afternoon_sheet) afternoon_entries.insert({line[0]+line[1], line});</div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;                std::cout &lt;&lt; <span class="stringliteral">&quot; Evening QA report:  \n&quot;</span>;</div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;                other_QA&lt;1&gt;();</div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;                <span class="keywordflow">return</span>;</div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;            <span class="keywordflow">case</span> 3:</div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;                <span class="keywordflow">for</span>(<span class="keyword">auto</span>&amp;&amp; line : evening_sheet) evening_entries.insert({line[0]+line[1], line});</div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;                std::cout &lt;&lt; <span class="stringliteral">&quot; Evening QA report:  \n&quot;</span>;</div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;                other_QA&lt;0&gt;();</div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;                <span class="keywordflow">return</span>;</div>
-<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;            <span class="keywordflow">case</span> 4:</div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;                ret = system(<span class="stringliteral">&quot;firefox https://saikishore-gowrishankar.github.io/DailyQA&quot;</span>);</div>
-<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;                <span class="keywordflow">if</span>(WIFSIGNALED(ret) &amp;&amp; (WTERMSIG(ret) == SIGINT || WTERMSIG(ret) == SIGQUIT))</div>
-<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;                    <span class="keywordflow">return</span>;</div>
-<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;                std::cin.clear();</div>
-<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;                std::cin.ignore(std::numeric_limits&lt;std::streamsize&gt;::max(), <span class="charliteral">&#39;\n&#39;</span>);</div>
-<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;                [[fallthrough]];</div>
-<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;            <span class="keywordflow">default</span>:</div>
-<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;                <span class="comment">//If debugging is necessary, add debug lines here, then #define DEBUG above</span></div>
-<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;<span class="preprocessor">                #ifdef DEBUG</span></div>
-<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;                    <span class="keywordflow">for</span>(<span class="keyword">auto</span>&amp;&amp; [first, second] : threshold_entries) std::cout &lt;&lt; first &lt;&lt; <span class="stringliteral">&quot;----&gt;&quot;</span> &lt;&lt; second &lt;&lt; <span class="charliteral">&#39;\n&#39;</span>;</div>
-<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;                    std::cout &lt;&lt; threshold_sheet &lt;&lt; std::endl;</div>
-<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;                    <span class="keywordflow">for</span>(<span class="keyword">auto</span>&amp;&amp; line : threshold_sheet) std::cout &lt;&lt; line.size() &lt;&lt; <span class="charliteral">&#39; &#39;</span>;</div>
-<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;                    std::cout.put(<span class="charliteral">&#39;\n&#39;</span>);</div>
-<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;                    <span class="keywordflow">return</span>;</div>
-<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;<span class="preprocessor">                #else</span></div>
-<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;                    std::cerr &lt;&lt; <span class="stringliteral">&quot;\u001b[31;1mERROR:\u001b[37;1m invalid selection\n&quot;</span>;</div>
-<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;                    <span class="keywordflow">continue</span>;</div>
-<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;<span class="preprocessor">                #endif</span></div>
-<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;        }</div>
-<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;    }</div>
-<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;}</div>
+<p class="definition">Definition at line <a class="el" href="DailyQA_8cpp_source.html#l00047">47</a> of file <a class="el" href="DailyQA_8cpp_source.html">DailyQA.cpp</a>.</p>
+<div class="fragment"><div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;{</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    <span class="keywordflow">while</span>(<span class="keyword">true</span>)</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    {</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;        <span class="keywordtype">int</span> in{}, ret{};</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;        std::cout &lt;&lt; <span class="stringliteral">&quot;\u001b[37;1mPlease select from the following menu:\u001b[0m\n&quot;</span></div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;                  &lt;&lt; <span class="stringliteral">&quot;1. Morning QA Setup\n&quot;</span></div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;                  &lt;&lt; <span class="stringliteral">&quot;2. Afternoon QA Setup\n&quot;</span></div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;                  &lt;&lt; <span class="stringliteral">&quot;3. Evening QA Setup\n&quot;</span></div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;                  &lt;&lt; <span class="stringliteral">&quot;4. Other Options\n&quot;</span></div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;                  &lt;&lt; <span class="stringliteral">&quot;5. Quit\n\n&quot;</span></div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;                  &lt;&lt; <span class="stringliteral">&quot;Your selection (number): &quot;</span>;</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;        std::cin &gt;&gt; in;</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;        <span class="keywordflow">if</span>(!std::cin)</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;        {</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;            std::cin.clear();</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;            std::cin.ignore(std::numeric_limits&lt;std::streamsize&gt; ::max(), <span class="charliteral">&#39;\n&#39;</span>);</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;            std::cerr &lt;&lt; <span class="stringliteral">&quot;\u001b[31;1mERROR:\u001b[0m Unrecognized option\n&quot;</span>;</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;            <span class="keywordflow">continue</span>;</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;        }</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160; </div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;        <span class="keywordflow">switch</span>(in)</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;        {</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;            <span class="keywordflow">case</span> 1:</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;                std::cout &lt;&lt; <span class="stringliteral">&quot;Formatting Morning QA sheet...\n\n&quot;</span>;</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;                <span class="keywordflow">for</span>(<span class="keyword">auto</span>&amp;&amp; line : morning_sheet) morning_entries.insert({line[0]+line[1], line});</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;                morning_QA();</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;                std::cout &lt;&lt; <span class="stringliteral">&quot;\n\u001b[32;1mMorning QA Sheet successfully formatted.\u001b[0m\n &quot;</span>;</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160; </div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;                std::cout &lt;&lt; <span class="stringliteral">&quot;Formatting Throughput sheet...\n&quot;</span>;</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;                throughput();</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;                std::cout &lt;&lt; <span class="stringliteral">&quot;\u001b[32;1mDone.\u001b[0m\n\n&quot;</span>;</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;                <span class="keywordflow">return</span>;</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;            <span class="keywordflow">case</span> 2:</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;                <span class="keywordflow">for</span>(<span class="keyword">auto</span>&amp;&amp; line : afternoon_sheet) afternoon_entries.insert({line[0]+line[1], line});</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;                std::cout &lt;&lt; <span class="stringliteral">&quot; Afternoon QA report:  \n&quot;</span>;</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;                other_QA&lt;1&gt;();</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;                std::cout &lt;&lt; <span class="stringliteral">&quot;\n\u001b[32;1mAfternoon QA Sheet successfully formatted.\u001b[0m\n &quot;</span>;</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160; </div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;                <span class="keywordflow">return</span>;</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;            <span class="keywordflow">case</span> 3:</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;                <span class="keywordflow">for</span>(<span class="keyword">auto</span>&amp;&amp; line : evening_sheet) evening_entries.insert({line[0]+line[1], line});</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;                std::cout &lt;&lt; <span class="stringliteral">&quot; Evening QA report:  \n&quot;</span>;</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;                other_QA&lt;0&gt;();</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;                std::cout &lt;&lt; <span class="stringliteral">&quot;\n\u001b[32;1mEvening QA Sheet successfully formatted.\u001b[0m\n &quot;</span>;</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;                <span class="keywordflow">return</span>;</div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;            <span class="keywordflow">case</span> 4:</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;                ret = system(<span class="stringliteral">&quot;firefox https://saikishore-gowrishankar.github.io/DailyQA&quot;</span>);</div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;                <span class="keywordflow">if</span>(WIFSIGNALED(ret) &amp;&amp; (WTERMSIG(ret) == SIGINT || WTERMSIG(ret) == SIGQUIT))</div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;                    <span class="keywordflow">return</span>;</div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;                std::cin.clear();</div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;                std::cin.ignore(std::numeric_limits&lt;std::streamsize&gt;::max(), <span class="charliteral">&#39;\n&#39;</span>);</div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;                [[fallthrough]];</div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;            <span class="keywordflow">case</span> 5: std::exit(0); <span class="keywordflow">break</span>;</div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;            <span class="keywordflow">default</span>:</div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;                <span class="comment">//If debugging is necessary, add debug lines here, then #define DEBUG above</span></div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;<span class="preprocessor">                #ifdef DEBUG</span></div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;                    <span class="keywordflow">for</span>(<span class="keyword">auto</span>&amp;&amp; [first, second] : threshold_entries) std::cout &lt;&lt; first &lt;&lt; <span class="stringliteral">&quot;----&gt;&quot;</span> &lt;&lt; second &lt;&lt; <span class="charliteral">&#39;\n&#39;</span>;</div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;                    std::cout &lt;&lt; threshold_sheet &lt;&lt; std::endl;</div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;                    <span class="keywordflow">for</span>(<span class="keyword">auto</span>&amp;&amp; line : threshold_sheet) std::cout &lt;&lt; line.size() &lt;&lt; <span class="charliteral">&#39; &#39;</span>;</div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;                    std::cout.put(<span class="charliteral">&#39;\n&#39;</span>);</div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;                    <span class="keywordflow">return</span>;</div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;<span class="preprocessor">                #else</span></div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;                    std::cerr &lt;&lt; <span class="stringliteral">&quot;\u001b[31;1mERROR:\u001b[37;1m invalid selection\n&quot;</span>;</div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;                    <span class="keywordflow">continue</span>;</div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;<span class="preprocessor">                #endif</span></div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;        }</div>
+<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;    }</div>
+<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;}</div>
 </div><!-- fragment -->
 </div>
 </div>

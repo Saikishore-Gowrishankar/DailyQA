@@ -79,13 +79,16 @@ void DailyQA::run()
                 return;
             case 2:
                 for(auto&& line : afternoon_sheet) afternoon_entries.insert({line[0]+line[1], line});
-                std::cout << " Evening QA report:  \n";
+                std::cout << " Afternoon QA report:  \n";
                 other_QA<1>();
+                std::cout << "\n\u001b[32;1mAfternoon QA Sheet successfully formatted.\u001b[0m\n ";
+
                 return;
             case 3:
                 for(auto&& line : evening_sheet) evening_entries.insert({line[0]+line[1], line});
                 std::cout << " Evening QA report:  \n";
                 other_QA<0>();
+                std::cout << "\n\u001b[32;1mEvening QA Sheet successfully formatted.\u001b[0m\n ";
                 return;
             case 4:
                 ret = system("firefox https://saikishore-gowrishankar.github.io/DailyQA");
