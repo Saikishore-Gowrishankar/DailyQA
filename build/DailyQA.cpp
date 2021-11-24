@@ -140,10 +140,23 @@ void DailyQA::thresholds()
 
         //Lookup based on concatenation of company and project
         auto str = company+project;
-        try{
+
         if(company != "_" && project != "_")
-            threshold_entries.insert({str, {std::stod(_1threshold), std::stod(_2threshold)}});
-        }catch(...){std::cout << "_threshikds: " << _1threshold << "  " << _2threshold << "\n\n\n\n"; continue;}
+        {
+            double _1{-1.0}, _2{-1.0};
+            try
+            {
+                _1 = std::stod(_1threshold);
+                _2 = std::stod(_2threshold);
+            }
+            catch(std::invalid_argument const&)
+            {
+                std::cerr << "\u001b[31;1mERROR:\u001b[37;1m    " <<
+                    company << "\u001b[0m - " << project << " failed to convert threshold to floating-point value.\n";
+                _1 = _2 = -1.0;
+            }
+            threshold_entries.insert({str, {_1, _2}});
+        }
     }
 }
 void DailyQA::add_throughput_entries()
@@ -201,7 +214,7 @@ void DailyQA::other_QA()
             auto const& cr_1day  = out(match, 4);
             auto const& cr_1week = out(match, 6);
 
-            outfile << out(match,0) << ',' << out(match, 1) << ','
+            outfile << company << ',' << project << ','
                     << cr << ',' << cr_1day << ',' << cr_1week << '\n';
             #undef out
         }
@@ -227,7 +240,7 @@ void DailyQA::morning_QA()
         auto str = company+project;
 
         static int ws_count = 0; //Whitespace count (merely for logging purposes)
-        if(auto search = morning_entries.find(str); search != std::end(morning_entries) /*&& search->first != ""*/)
+        if(auto search = morning_entries.find(str); search != std::end(morning_entries))
         {
             #define out(x,y) ( (x)[y] == ""? "n/a" : (x)[y]  )
             auto const& _7 = out(search->second,4);
@@ -238,21 +251,22 @@ void DailyQA::morning_QA()
             auto t_1 = find_threshold(_1);
             auto t_2 = find_threshold(_2);
 
-            outfile << out(search->second,0) << ',' <<  out(search->second,1) << ','
+            outfile << company << ',' << project << ','
                     << _7 << ',' << _3 << ','<< _2 << ',' << _1;
             if(auto s = threshold_entries.find(str); s != std::end(threshold_entries))
             {
                 auto const& match = s->second;
-                bool cond = (match.first > t_1 && match.second > t_2);
                 if(throughput_entries.find(str) != std::end(throughput_entries))
                     outfile << ",***,";
                 else
                     outfile << ",n/a,";
-                outfile << (cond?"***,,***,\n":"no,n/a,no,n/a\n");
+
+                if(match.first == -1.0) outfile << "ERR,ERR,ERR,ERR\n";
+                else outfile << ((match.first > t_1 && match.second > t_2)?"***,,***,\n":"no,n/a,no,n/a\n");
             }
             else
             {
-                std::cerr << "\u001b[31;1mERROR:\u001b[37;1m    " << company << "\u001b[0m - " << project 
+                std::cerr << "\u001b[31;1mERROR:\u001b[37;1m    " << company << "\u001b[0m - " << project
                     << " does not have a corresponding threshold entry\n";
                 outfile << ",,ERR,ERR,ERR,ERR\n";
             }
@@ -266,7 +280,7 @@ void DailyQA::morning_QA()
         else
         {
             ws_count = 0;
-            std::cerr << "\u001b[31;1mCould not find:\u001b[37;1m    " << company << "\u001b[0m - " << project << "    \n";
+            std::cerr << "\u001b[31;1mERROR: Could not find:\u001b[37;1m    " << company << "\u001b[0m - " << project << "    \n";
             outfile << company << ',' << project << ',' << "ERR,ERR,ERR,ERR,ERR,ERR,ERR,ERR,ERR\n";
         }
     }
