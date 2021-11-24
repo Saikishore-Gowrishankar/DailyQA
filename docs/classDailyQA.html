@@ -147,23 +147,24 @@ template&lt;typename ... Args&gt; </td></tr>
 <div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;            <span class="keywordflow">case</span> 2: <span class="keywordflow">return</span>;</div>
 <div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;            <span class="keywordflow">case</span> 3:</div>
 <div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;                <span class="keywordflow">for</span>(<span class="keyword">auto</span>&amp;&amp; line : evening_sheet) evening_entries.insert({line[0]+line[1], line});</div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;                std::cout &lt;&lt; evening_sheet;</div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;                <span class="keywordflow">return</span>;</div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;            <span class="keywordflow">default</span>:</div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;                <span class="comment">//If debugging is necessary, add debug lines here, then #define DEBUG above</span></div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;<span class="preprocessor">                #ifdef DEBUG</span></div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;                    <span class="keywordflow">for</span>(<span class="keyword">auto</span>&amp;&amp; [first, second] : threshold_entries) std::cout &lt;&lt; first &lt;&lt; <span class="stringliteral">&quot;----&gt;&quot;</span> &lt;&lt; second &lt;&lt; <span class="charliteral">&#39;\n&#39;</span>;</div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;                    std::cout &lt;&lt; threshold_sheet &lt;&lt; std::endl;</div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;                    <span class="keywordflow">for</span>(<span class="keyword">auto</span>&amp;&amp; line : threshold_sheet) std::cout &lt;&lt; line.size() &lt;&lt; <span class="charliteral">&#39; &#39;</span>;</div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;                    std::cout.put(<span class="charliteral">&#39;\n&#39;</span>);</div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;                    <span class="keywordflow">return</span>;</div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;<span class="preprocessor">                #else</span></div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;                    std::cerr &lt;&lt; <span class="stringliteral">&quot;\u001b[31;1mERROR:\u001b[37;1m invalid selection\n&quot;</span>;</div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;                    <span class="keywordflow">continue</span>;</div>
-<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;<span class="preprocessor">                #endif</span></div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;        }</div>
-<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;    }</div>
-<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;}</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;                std::cout &lt;&lt; <span class="stringliteral">&quot; Evening QA report:  \n&quot;</span>;</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;                evening_QA();</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;                <span class="keywordflow">return</span>;</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;            <span class="keywordflow">default</span>:</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;                <span class="comment">//If debugging is necessary, add debug lines here, then #define DEBUG above</span></div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;<span class="preprocessor">                #ifdef DEBUG</span></div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;                    <span class="keywordflow">for</span>(<span class="keyword">auto</span>&amp;&amp; [first, second] : threshold_entries) std::cout &lt;&lt; first &lt;&lt; <span class="stringliteral">&quot;----&gt;&quot;</span> &lt;&lt; second &lt;&lt; <span class="charliteral">&#39;\n&#39;</span>;</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;                    std::cout &lt;&lt; threshold_sheet &lt;&lt; std::endl;</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;                    <span class="keywordflow">for</span>(<span class="keyword">auto</span>&amp;&amp; line : threshold_sheet) std::cout &lt;&lt; line.size() &lt;&lt; <span class="charliteral">&#39; &#39;</span>;</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;                    std::cout.put(<span class="charliteral">&#39;\n&#39;</span>);</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;                    <span class="keywordflow">return</span>;</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;<span class="preprocessor">                #else</span></div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;                    std::cerr &lt;&lt; <span class="stringliteral">&quot;\u001b[31;1mERROR:\u001b[37;1m invalid selection\n&quot;</span>;</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;                    <span class="keywordflow">continue</span>;</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;<span class="preprocessor">                #endif</span></div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;        }</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;    }</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;}</div>
 </div><!-- fragment -->
 </div>
 </div>

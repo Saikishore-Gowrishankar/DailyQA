@@ -4,7 +4,7 @@ American Home Shield Corp,After Hours,n/a,n/a,n/a,n/a,n/a,no,n/a,no,n/a
 
 American Home Shield Corp,AHS - Live,0.316%,0.426%,0.417%,0.000%,n/a,***,,***,
 
-American Home Shield Corp,AHS - Re-engaged,0.189%,0.115%,0.388%,0.000%,n/a,***,,***,
+American Home Shield Corp,AHS - Re-engaged,0.189%,0.115%,0.388%,0.000%,n/a,no,n/a,no,n/a
 
 Centene Corporation,WellCare - D2C/D2S Hybrid,n/a,n/a,n/a,n/a,n/a,no,n/a,no,n/a
 
@@ -14,7 +14,7 @@ Core Digital Media,Remonetize - ATT,10.000%,n/a,n/a,n/a,***,no,n/a,no,n/a
 
 Core Digital Media,Remonetize Lead,18.382%,n/a,n/a,n/a,n/a,no,n/a,no,n/a
 
-EverQuote,Auto - Drive to Site,7.429%,6.590%,8.006%,4.334%,***,***,,***,
+EverQuote,Auto - Drive to Site,7.429%,6.590%,8.006%,4.334%,***,no,n/a,no,n/a
 
 EverQuote,Auto - Drive to Site - ATT Only,3.603%,4.376%,4.687%,3.936%,***,no,n/a,no,n/a
 
@@ -28,7 +28,7 @@ EverQuote,Home - Drive to Site - ATT Only,5.466%,5.882%,9.470%,4.332%,n/a,no,n/a
 
 EverQuote,Life Insurance,8.975%,7.514%,8.642%,5.802%,***,no,n/a,no,n/a
 
-EverQuote,Life Insurance - ATT Only,4.962%,4.637%,6.667%,2.761%,n/a,***,,***,
+EverQuote,Life Insurance - ATT Only,4.962%,4.637%,6.667%,2.761%,n/a,no,n/a,no,n/a
 
 Fluent,D2S - AARP - Membership Driver - SMS,1.531%,1.185%,1.722%,0.855%,***,no,n/a,no,n/a
 
@@ -38,11 +38,11 @@ Fluent,D2S - Auto Insurance - D2S - SMS - Drips,3.131%,2.349%,1.893%,2.615%,***,
 
 Fluent,D2S - Class Action Lawsuit - D2S,3.574%,2.737%,3.013%,2.762%,***,no,n/a,no,n/a
 
-Fluent,D2S - Data Prosper (Inbound.io) - MVA - SMS,4.509%,3.520%,4.876%,0.328%,***,***,,***,
+Fluent,D2S - Data Prosper (Inbound.io) - MVA - SMS,4.509%,3.520%,4.876%,0.328%,***,no,n/a,no,n/a
 
 Fluent,D2S - Data Prosper (Inbound.io) - Workers Comp - SMS,n/a,n/a,n/a,n/a,n/a,no,n/a,no,n/a
 
-Fluent,D2S - EPCVIP - Personal Loans - SMS - DR,3.979%,3.451%,3.589%,2.375%,***,***,,***,
+Fluent,D2S - EPCVIP - Personal Loans - SMS - DR,3.979%,3.451%,3.589%,2.375%,***,no,n/a,no,n/a
 
 Fluent,D2S - Fiat Growth - Relief - SMS,3.841%,3.549%,3.755%,3.358%,n/a,***,,***,
 
@@ -68,19 +68,19 @@ Fluent - Website Reengagement,Jobs - Resubscribes - Link First,29.779%,26.678%,2
 
 Fluent - Website Reengagement,Jobs SMS,20.280%,17.695%,18.215%,15.298%,***,no,n/a,no,n/a
 
-Fluent - Website Reengagement,Jobs SMS - Link First,50.462%,46.658%,47.358%,43.153%,***,***,,***,
+Fluent - Website Reengagement,Jobs SMS - Link First,50.462%,46.658%,47.358%,43.153%,***,no,n/a,no,n/a
 
 Fluent - Website Reengagement,Rewards US - Claimed Users - Flash App,0.000%,n/a,n/a,n/a,n/a,no,n/a,no,n/a
 
 Fluent - Website Reengagement,Rewards US - Clickers - ATT,23.129%,27.483%,28.760%,21.955%,***,no,n/a,no,n/a
 Fluent - Website Reengagement,Rewards US - Clickers - Other Carriers,32.598%,29.571%,32.971%,25.641%,***,no,n/a,no,n/a
-Fluent - Website Reengagement,Rewards US - Clickers - Verizon,26.112%,23.885%,26.727%,18.653%,***,***,,***,
+Fluent - Website Reengagement,Rewards US - Clickers - Verizon,26.112%,23.885%,26.727%,18.653%,***,no,n/a,no,n/a
 
 Fluent - Website Reengagement,Rewards US - Converters - ATT,33.512%,38.150%,40.085%,26.749%,***,***,,***,
 Fluent - Website Reengagement,Rewards US - Converters - Other Carriers,63.118%,59.877%,60.411%,58.333%,***,no,n/a,no,n/a
 Fluent - Website Reengagement,Rewards US - Converters - Verizon,58.530%,56.457%,57.659%,50.927%,***,no,n/a,no,n/a
 
-Fluent - Website Reengagement,Rewards US - Flow Converters - ATT,10.276%,5.068%,4.013%,2.332%,***,no,n/a,no,n/a
+Fluent - Website Reengagement,Rewards US - Flow Converters - ATT,10.276%,5.068%,4.013%,2.332%,***,***,,***,
 Fluent - Website Reengagement,Rewards US - Flow Converters - Other Carriers,36.161%,30.769%,35.965%,21.552%,n/a,no,n/a,no,n/a
 Fluent - Website Reengagement,Rewards US - Flow Converters - Verizon,33.369%,29.852%,33.021%,22.543%,***,no,n/a,no,n/a
 
@@ -92,7 +92,7 @@ Fluent - Website Reengagement,Rewards US - Reward Reg - ATT,9.097%,1.003%,0.000%
 Fluent - Website Reengagement,Rewards US - Reward Reg - Other Carriers,27.580%,24.874%,25.424%,21.324%,n/a,no,n/a,no,n/a
 Fluent - Website Reengagement,Rewards US - Reward Reg - Verizon,27.612%,26.373%,27.786%,20.396%,n/a,no,n/a,no,n/a
 
-Fluent - Website Reengagement,Rewards US - Viewers - ATT,12.265%,12.285%,14.414%,7.257%,***,no,n/a,no,n/a
+Fluent - Website Reengagement,Rewards US - Viewers - ATT,12.265%,12.285%,14.414%,7.257%,***,***,,***,
 Fluent - Website Reengagement,Rewards US - Viewers - Other Carriers,20.456%,19.754%,20.132%,17.813%,n/a,no,n/a,no,n/a
 Fluent - Website Reengagement,Rewards US - Viewers - Verizon,22.981%,20.766%,21.060%,16.412%,n/a,no,n/a,no,n/a
 
@@ -115,7 +115,7 @@ Inside Response,Medicare Vintage 2021 - D2S Hybrid AT&T,n/a,n/a,n/a,n/a,***,no,n
 
 Liberty Mutual,(AP) Compare.com Auto Dual CTA,n/a,n/a,n/a,n/a,n/a,no,n/a,no,n/a
 
-Liberty Mutual,Drive 2 Site - Vehicle Error Leads,16.429%,12.658%,17.647%,9.615%,n/a,***,,***,
+Liberty Mutual,Drive 2 Site - Vehicle Error Leads,16.429%,12.658%,17.647%,9.615%,n/a,no,n/a,no,n/a
 
 Liberty Mutual,Drive 2 Site - Vehicle Error Leads - ATT ONLY,7.190%,10.714%,11.111%,12.500%,n/a,no,n/a,no,n/a
 
@@ -127,7 +127,7 @@ Mortgage Research Center,Veterans United Home Loans - Aged (7 Day) New Purchase 
 
 NextGen Leads,D2S - Auto - AT & T,4.000%,5.435%,4.348%,16.667%,n/a,no,n/a,no,n/a
 
-NextGen Leads,D2S - Auto Insurance,19.882%,15.082%,13.265%,16.327%,***,***,,***,
+NextGen Leads,D2S - Auto Insurance,19.882%,15.082%,13.265%,16.327%,***,no,n/a,no,n/a
 
 NextGen Leads,D2S - Health,16.491%,16.626%,14.571%,17.098%,***,no,n/a,no,n/a
 
@@ -145,7 +145,7 @@ Progrexion,MK:OP - Credit Tips - D2S,n/a,n/a,n/a,n/a,n/a,no,n/a,no,n/a
 
 Progrexion,MK:OP - D2S - Housing E-Book,n/a,n/a,n/a,n/a,n/a,no,n/a,no,n/a
 
-Progrexion,MK:OP - D2S - RTO E-Book,12.281%,8.696%,20.000%,0.000%,n/a,no,n/a,no,n/a
+Progrexion,MK:OP - D2S - RTO E-Book,12.281%,8.696%,20.000%,0.000%,n/a,***,,***,
 
 Progrexion,MK-OP: Drive2Site - Phone to Web,26.585%,27.121%,26.531%,25.260%,n/a,no,n/a,no,n/a
 

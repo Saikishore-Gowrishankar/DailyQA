@@ -51,7 +51,7 @@ private:
     //TODO: Add Afternoon + Evening QA, + possible others
     void morning_QA();
     void throughput();
-    void evening_QA();
+    void other_QA();
 
     //Adds entries to respective hash tables (increase modularity, reduce dependencies)
     void add_throughput_entries();
@@ -75,6 +75,6 @@ private:
 
     //Output files (no need for it to be a Spreadsheet)
     std::ofstream outfile{"output/output.csv"}; //Output file
-    std::ofstream t_outfile{"output/t_outfile.csv"}; //Throughput output file
+    std::ofstream t_outfile{"output/t_outfile2.csv"}; //Throughput output file
     std::ofstream log{"output/log.csv"}; //Log throughput stats
 };

@@ -72,7 +72,8 @@ void DailyQA::run()
             case 2: return;
             case 3:
                 for(auto&& line : evening_sheet) evening_entries.insert({line[0]+line[1], line});
-                std::cout << evening_sheet;
+                std::cout << " Evening QA report:  \n";
+                other_QA();
                 return;
             default:
                 //If debugging is necessary, add debug lines here, then #define DEBUG above
@@ -89,15 +90,18 @@ void DailyQA::run()
         }
     }
 }
-
-
+/*
+    TODO: Make thresholds() have high exception safety around calls to std::stod()
+    TODO: Reduce/eliminate morning QA/threshold dependencies
+*/
 void DailyQA::thresholds()
 {
     std::string cached_company_name;
+    std::cout << "b4";
     for(auto&& line : threshold_sheet)
     {
         auto company = line[0], project = line[1],
-                       _1threshold = line[2], _2threshold = line[3];
+                       _1threshold = line[3], _2threshold = line[2];
 
         //Caches company name for projects w/ multiple carriers, see morning_QA()
         if(company != "") cached_company_name = company;
@@ -146,12 +150,41 @@ void DailyQA::add_name_entries()
     }
 }
 
+void DailyQA::other_QA()
+{
+    add_name_entries();
+    for(auto&& line : names_sheet)
+    {
+        auto company = line[0], project = line[1];
+        auto str = company+project;
+        if(auto search = evening_entries.find(str); search != std::end(evening_entries))
+        {
+            auto& match = search->second;
+
+            #define out(x,y) ( (x)[y] == ""? "n/a" : (x)[y]  )
+            auto const& cr       = out(match, 2);
+            auto const& cr_1day  = out(match, 4);
+            auto const& cr_1week = out(match, 6);
+
+            outfile << out(match,0) << ',' << out(match, 1) << ','
+                    << cr << ',' << cr_1day << ',' << cr_1week << '\n';
+            #undef out
+        }
+        else if(project == "_" || company == "_" || project == "" || company == "")
+        {
+            outfile.put('\n');
+        }
+        else
+        {
+            outfile << company << ',' << project << ",\n";
+        }
+    }
+}
 void DailyQA::morning_QA()
 {
     thresholds();
     add_name_entries();
     add_throughput_entries();
-
     std::string cached_company_name;
     for(auto&& line : names_sheet)
     {
@@ -221,14 +254,11 @@ void DailyQA::throughput()
     //Delete unnecessary projects on throughput sheet
     for(auto&& line : throughput_sheet)
     {
-        bool ATT{}, verizon{}, sprint{}, tmobile{};
+        bool ATT{}, verizon{}, sprint{}, tmobile{}, val{};
         auto str = line[1] + line[2]; //Lookup based on concatenation, as before
         if(auto search = name_entries.find(str); search != std::end(name_entries))
         {
             ++total_entries;
-
-            //Add to list of projects that will be in final throughput sheet
-            D2S.push_back(line);
 
             #define provider_block()\
             {\
@@ -239,11 +269,10 @@ void DailyQA::throughput()
                 }\
             }
 
-            //Update total blocks and provider blocks
-            if(auto dat = line[6]; dat != "" && dat != "_"){ ATT     = ++total_ATT;     provider_block(); }
-            if(auto dat = line[7]; dat != "" && dat != "_"){ sprint  = ++total_sprint;  provider_block(); }
-            if(auto dat = line[8]; dat != "" && dat != "_"){ tmobile = ++total_tmobile; provider_block(); }
-            if(auto dat = line[9]; dat != "" && dat != "_"){ verizon = ++total_verizon; provider_block(); }
+            if(auto dat = line[6]; dat != "" && dat != "_"){ ATT     = ++total_ATT;  provider_block();    if(dat.find("N/A") == std::string::npos) val = true;}
+            if(auto dat = line[7]; dat != "" && dat != "_"){ sprint  = ++total_sprint;  provider_block(); if(dat.find("N/A") == std::string::npos) val = true;}
+            if(auto dat = line[8]; dat != "" && dat != "_"){ tmobile = ++total_tmobile; provider_block(); if(dat.find("N/A") == std::string::npos) val = true;}
+            if(auto dat = line[9]; dat != "" && dat != "_"){ verizon = ++total_verizon; provider_block(); if(dat.find("N/A") == std::string::npos) val = true;}
 
             #undef provider_block
 
@@ -255,6 +284,9 @@ void DailyQA::throughput()
 
             //Update blocks on all carriers
             if(ATT && sprint && tmobile && verizon) ++all;
+
+            //Add to list of projects that will be in final throughput sheet
+            if(val) D2S.push_back(line);
         }
     }
 

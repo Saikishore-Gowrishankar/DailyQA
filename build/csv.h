@@ -40,7 +40,7 @@ public:
         std::getline(*this, buf_, (char)EOF);
 
         //Replace commas in symbols with underscore
-        buf_ = std::regex_replace(buf_, symbol_with_comma, "$1_$3");
+        buf_ = std::regex_replace(buf_, symbol_with_comma, "$1~$3");
 
         //Erase all double quote characters (remove-erase idiom)
         buf_.erase(std::remove(std::begin(buf_), std::end(buf_), '"'), std::end(buf_));

@@ -82,23 +82,24 @@ Definition at line 40 of file Daily\+QA.\+cpp.
 \DoxyCodeLine{72             \textcolor{keywordflow}{case} 2: \textcolor{keywordflow}{return};}
 \DoxyCodeLine{73             \textcolor{keywordflow}{case} 3:}
 \DoxyCodeLine{74                 \textcolor{keywordflow}{for}(\textcolor{keyword}{auto}\&\& line : evening\_sheet) evening\_entries.insert(\{line[0]+line[1], line\});}
-\DoxyCodeLine{75                 std::cout << evening\_sheet;}
-\DoxyCodeLine{76                 \textcolor{keywordflow}{return};}
-\DoxyCodeLine{77             \textcolor{keywordflow}{default}:}
-\DoxyCodeLine{78                 \textcolor{comment}{//If debugging is necessary, add debug lines here, then \#define DEBUG above}}
-\DoxyCodeLine{79 \textcolor{preprocessor}{                \#ifdef DEBUG}}
-\DoxyCodeLine{80                     \textcolor{keywordflow}{for}(\textcolor{keyword}{auto}\&\& [first, second] : threshold\_entries) std::cout << first << \textcolor{stringliteral}{"{}-\/-\/-\/-\/>"{}} << second << \textcolor{charliteral}{'\(\backslash\)n'};}
-\DoxyCodeLine{81                     std::cout << threshold\_sheet << std::endl;}
-\DoxyCodeLine{82                     \textcolor{keywordflow}{for}(\textcolor{keyword}{auto}\&\& line : threshold\_sheet) std::cout << line.size() << \textcolor{charliteral}{' '};}
-\DoxyCodeLine{83                     std::cout.put(\textcolor{charliteral}{'\(\backslash\)n'});}
-\DoxyCodeLine{84                     \textcolor{keywordflow}{return};}
-\DoxyCodeLine{85 \textcolor{preprocessor}{                \#else}}
-\DoxyCodeLine{86                     std::cerr << \textcolor{stringliteral}{"{}\(\backslash\)u001b[31;1mERROR:\(\backslash\)u001b[37;1m invalid selection\(\backslash\)n"{}};}
-\DoxyCodeLine{87                     \textcolor{keywordflow}{continue};}
-\DoxyCodeLine{88 \textcolor{preprocessor}{                \#endif}}
-\DoxyCodeLine{89         \}}
-\DoxyCodeLine{90     \}}
-\DoxyCodeLine{91 \}}
+\DoxyCodeLine{75                 std::cout << \textcolor{stringliteral}{"{} Evening QA report:  \(\backslash\)n"{}};}
+\DoxyCodeLine{76                 evening\_QA();}
+\DoxyCodeLine{77                 \textcolor{keywordflow}{return};}
+\DoxyCodeLine{78             \textcolor{keywordflow}{default}:}
+\DoxyCodeLine{79                 \textcolor{comment}{//If debugging is necessary, add debug lines here, then \#define DEBUG above}}
+\DoxyCodeLine{80 \textcolor{preprocessor}{                \#ifdef DEBUG}}
+\DoxyCodeLine{81                     \textcolor{keywordflow}{for}(\textcolor{keyword}{auto}\&\& [first, second] : threshold\_entries) std::cout << first << \textcolor{stringliteral}{"{}-\/-\/-\/-\/>"{}} << second << \textcolor{charliteral}{'\(\backslash\)n'};}
+\DoxyCodeLine{82                     std::cout << threshold\_sheet << std::endl;}
+\DoxyCodeLine{83                     \textcolor{keywordflow}{for}(\textcolor{keyword}{auto}\&\& line : threshold\_sheet) std::cout << line.size() << \textcolor{charliteral}{' '};}
+\DoxyCodeLine{84                     std::cout.put(\textcolor{charliteral}{'\(\backslash\)n'});}
+\DoxyCodeLine{85                     \textcolor{keywordflow}{return};}
+\DoxyCodeLine{86 \textcolor{preprocessor}{                \#else}}
+\DoxyCodeLine{87                     std::cerr << \textcolor{stringliteral}{"{}\(\backslash\)u001b[31;1mERROR:\(\backslash\)u001b[37;1m invalid selection\(\backslash\)n"{}};}
+\DoxyCodeLine{88                     \textcolor{keywordflow}{continue};}
+\DoxyCodeLine{89 \textcolor{preprocessor}{                \#endif}}
+\DoxyCodeLine{90         \}}
+\DoxyCodeLine{91     \}}
+\DoxyCodeLine{92 \}}
 
 \end{DoxyCode}
 
