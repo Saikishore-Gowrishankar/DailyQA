@@ -14,6 +14,10 @@
 #include <utility>
 #include <algorithm>
 
+/* Platform-specific dependencies */
+#include <stdlib.h>
+#include <signal.h>
+
 /* Local dependencies */
 #include "DailyQA.h"
 
@@ -24,13 +28,15 @@ static constexpr double find_threshold(auto const& rate)
 }
 
 DailyQA::DailyQA(std::string_view names, std::string_view data, std::string_view throughput, std::string_view providers, std::string_view thresholds,
-                 std::string_view evening_data)
+                 std::string_view evening_data, std::string_view afternoon_data)
          : names_sheet{names.data()},
            morning_sheet{data.data()},
            throughput_sheet{throughput.data(), 10}, //Each line of throughput sheet has 10 cells
            providers_sheet{providers.data()},
            threshold_sheet{thresholds.data(), 4},
-           evening_sheet{evening_data.data(), 7}
+           evening_sheet{evening_data.data(), 7},
+           afternoon_sheet{afternoon_data.data(), 7}
+
 {
     // Insert data into a hash map for easy lookup
     for(auto&& line : providers_sheet) provider_entries.insert({line[0], {line[1], 0} });
@@ -41,8 +47,8 @@ void DailyQA::run()
 {
     while(true)
     {
-        int in{};
-        std::cout << "Please select from the following menu: \n"
+        int in{}, ret{};
+        std::cout << "\u001b[37;1mPlease select from the following menu:\u001b[0m\n"
                   << "1. Morning QA Setup\n"
                   << "2. Afternoon QA Setup\n"
                   << "3. Evening QA Setup\n"
@@ -53,7 +59,7 @@ void DailyQA::run()
         {
             std::cin.clear();
             std::cin.ignore(std::numeric_limits<std::streamsize> ::max(), '\n');
-            std::cerr << "\u001b[31;1mERROR:\u001b[37;1m Unrecognized option\n";
+            std::cerr << "\u001b[31;1mERROR:\u001b[0m Unrecognized option\n";
             continue;
         }
 
@@ -69,12 +75,23 @@ void DailyQA::run()
                 throughput();
                 std::cout << "\u001b[32;1mDone.\u001b[0m\n\n";
                 return;
-            case 2: return;
+            case 2:
+                for(auto&& line : afternoon_sheet) afternoon_entries.insert({line[0]+line[1], line});
+                std::cout << " Evening QA report:  \n";
+                other_QA<1>();
+                return;
             case 3:
                 for(auto&& line : evening_sheet) evening_entries.insert({line[0]+line[1], line});
                 std::cout << " Evening QA report:  \n";
-                other_QA();
+                other_QA<0>();
                 return;
+            case 4:
+                ret = system("firefox https://saikishore-gowrishankar.github.io/DailyQA");
+                if(WIFSIGNALED(ret) && (WTERMSIG(ret) == SIGINT || WTERMSIG(ret) == SIGQUIT))
+                    return;
+                std::cin.clear();
+                std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+                [[fallthrough]];
             default:
                 //If debugging is necessary, add debug lines here, then #define DEBUG above
                 #ifdef DEBUG
@@ -97,11 +114,12 @@ void DailyQA::run()
 void DailyQA::thresholds()
 {
     std::string cached_company_name;
-    std::cout << "b4";
     for(auto&& line : threshold_sheet)
     {
         auto company = line[0], project = line[1],
                        _1threshold = line[3], _2threshold = line[2];
+        if(_1threshold.find("n") != std::string::npos) _1threshold = "0.00%";
+        if(_2threshold.find("n") != std::string::npos) _2threshold = "0.00%";
 
         //Caches company name for projects w/ multiple carriers, see morning_QA()
         if(company != "") cached_company_name = company;
@@ -111,10 +129,15 @@ void DailyQA::thresholds()
         //Remove '%' character
         _1threshold.pop_back(); _2threshold.pop_back();
 
+        //auto _1 = std::stod(_1threshold);
+        //auto _2 = std::stod(_2threshold);
+
         //Lookup based on concatenation of company and project
         auto str = company+project;
+        try{
         if(company != "_" && project != "_")
             threshold_entries.insert({str, {std::stod(_1threshold), std::stod(_2threshold)}});
+        }catch(...){std::cout << "_threshikds: " << _1threshold << "  " << _2threshold << "\n\n\n\n"; continue;}
     }
 }
 void DailyQA::add_throughput_entries()
@@ -150,14 +173,20 @@ void DailyQA::add_name_entries()
     }
 }
 
+template<bool b>
 void DailyQA::other_QA()
 {
+    LineEntries* entries = nullptr;
+
+    if constexpr (b) entries = &afternoon_entries;
+    else 	     entries = &evening_entries;
+
     add_name_entries();
     for(auto&& line : names_sheet)
     {
         auto company = line[0], project = line[1];
         auto str = company+project;
-        if(auto search = evening_entries.find(str); search != std::end(evening_entries))
+        if(auto search = entries->find(str); search != std::end(*entries))
         {
             auto& match = search->second;
 
@@ -347,7 +376,7 @@ int main()
     std::cout << "opening \u001b[35;1minput/names.csv\u001b[0m, \u001b[35;1minput/data.csv\u001b[0m, and \u001b[35;1minput/throughput.csv\u001b[0m\n";
 
     DailyQA& doc = DailyQA::get_singleton("input/names.csv", "input/data.csv","input/throughput.csv", "input/providers.csv", "input/thresholds.csv",
-                                          "input/evening_data.csv");
+                                          "input/evening_data.csv", "input/afternoon_data.csv");
 
     std::cout << "\u001b[32;1mSuccessfully opened aforementioned files.\u001b[0m\n\nRunning main program.\n";
 

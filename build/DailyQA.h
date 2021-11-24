@@ -45,12 +45,18 @@ private:
             std::string_view throughput,
             std::string_view providers,
             std::string_view thresholds,
-            std::string_view evening_data);
+            std::string_view evening_data,
+            std::string_view afternoon_data);
 
     //Stages
     //TODO: Add Afternoon + Evening QA, + possible others
     void morning_QA();
     void throughput();
+
+    //Key:
+    //Set b = true for afternoon QA
+    //Set b = false for evening QA
+    template<bool b>
     void other_QA();
 
     //Adds entries to respective hash tables (increase modularity, reduce dependencies)
@@ -63,18 +69,25 @@ private:
     Spreadsheet providers_sheet;			      // Stores the mapping between provider name and number
     Spreadsheet threshold_sheet;			      // Stores the threshholds for DailyQA setup
     Spreadsheet evening_sheet;				      // Evening data sheet
+    Spreadsheet afternoon_sheet;
+
+    using LineEntries = std::unordered_map<std::string, Line>;
+    using LineLookup = std::unordered_set<std::string>;
+
+    template<typename T1, typename T2>
+    using LineMap = std::unordered_map<std::string, std::pair<T1, T2>>;
 
     //Parsed data stored in hash tables for easy lookup
-    std::unordered_map<std::string, Line> morning_entries{};    // Stores morning data entries
-    std::unordered_map<std::string, Line> afternoon_entries{};  // Stores afternoon data entries
-    std::unordered_map<std::string, Line> evening_entries{};    // Stores evening data entries
-    std::unordered_map<std::string, Line> name_entries{};       // Stores name entries (for throughput sheet)
-    std::unordered_set<std::string> throughput_entries{};       // Stores name entries (for throughput sheet)
-    std::unordered_map<std::string, std::pair<std::string, int>> provider_entries{}; 	// Stores provider mappings
-    std::unordered_map<std::string, std::pair<double, double>> threshold_entries{};     // Stores threshold entries (for throughput sheet)
+    LineEntries morning_entries{};    // Stores morning data entries
+    LineEntries afternoon_entries{};  // Stores afternoon data entries
+    LineEntries evening_entries{};    // Stores evening data entries
+    LineEntries name_entries{};       // Stores name entries (for throughput sheet)
+    LineLookup throughput_entries{};       // Stores name entries (for throughput sheet)
+    LineMap<std::string, int> provider_entries{}; 	// Stores provider mappings
+    LineMap<double, double> threshold_entries{};     // Stores threshold entries (for throughput sheet)
 
     //Output files (no need for it to be a Spreadsheet)
     std::ofstream outfile{"output/output.csv"}; //Output file
-    std::ofstream t_outfile{"output/t_outfile2.csv"}; //Throughput output file
+    std::ofstream t_outfile{"output/t_outfile.csv"}; //Throughput output file
     std::ofstream log{"output/log.csv"}; //Log throughput stats
 };
